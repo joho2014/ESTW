@@ -2,7 +2,7 @@
 
 ESTW is a piece of software with the aim simulate a completely computerized signaling control. It's written completely in Java and features a great user interface.
 
-The [wiki](/joho2014/ESTW/wiki) will help you, if you wish to start out new.
+The [wiki](github.com/joho2014/ESTW/wiki) will help you, if you wish to start out new.
 
 ## Quick start
 
@@ -12,7 +12,7 @@ The easiest way to get started is to simply clone the repository:
 
 ## Building
 
-We have set the repository up to both support the use of BlueJ and bash. There are comprehensive set-by-step guide available in the [wiki](/joho2014/ESTW/wiki). Once everything is in place building should be as easy as
+We have set the repository up to both support the use of BlueJ and bash. There are comprehensive set-by-step guide available in the [wiki](github.com/joho2014/ESTW/wiki). Once everything is in place building should be as easy as
 
 	make
 
