@@ -2,7 +2,7 @@
 
 ESTW is a piece of software with the aim simulate a completely computerized signaling control. It's written completely in Java and features a great user interface.
 
-The [wiki](github.com/joho2014/ESTW/wiki) will help you, if you wish to start out new.
+The [wiki](www.github.com/joho2014/ESTW/wiki) will help you, if you wish to start out new.
 
 ## Quick start
 
