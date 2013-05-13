@@ -1,7 +1,18 @@
 public class Steuerung{
-	Steuerung();
+	Steuerung(){}
 	
 	public Zug zugErstellen(int start, int ziel){
-		//zeugs
+	
+		return new Zug(start,ziel);
 	}
+
+	public void blockFahren(){
+
+	}
+
+	public void fahren(){
+
+		
+	}
+
 }
