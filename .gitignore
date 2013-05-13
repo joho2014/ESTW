@@ -5,3 +5,6 @@
 # Package Files #
 *.jar
 *.bluej
+
+# MacOSX Finder Files #
+.DS_Store
