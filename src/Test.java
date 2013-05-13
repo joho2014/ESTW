@@ -1,5 +1,5 @@
 public class Test{
-	private Steuerung = new Steuerung();
+	private Steuerung Steuerung = new Steuerung();
 	public void test(){
 		//1. Barby → Zerbst; zeitgleich Prödel → Barby
 		//Ziel: Kollision auf Südkurve
