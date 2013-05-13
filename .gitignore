@@ -7,4 +7,4 @@
 *.bluej
 
 # MacOSX Finder Files #
-*.DS_Store
+.DS_Store
