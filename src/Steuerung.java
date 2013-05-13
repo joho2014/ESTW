@@ -1,5 +1,5 @@
 public class Steuerung{
-	Steuerung()
+	Steuerung();
 	
 	public Zug zugErstellen(int start, int ziel){
 		//zeugs
