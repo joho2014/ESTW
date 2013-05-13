@@ -27,5 +27,5 @@ run:
 	java -jar ESTW.jar
 
 clean:
-	rm -f src/*.class src/*.ctxt src/*.bluej
+	rm -f src/*.class
 	rm -f ESTW.jar
