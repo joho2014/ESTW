@@ -1,15 +1,15 @@
 public class Gleisstueck
 {
     private String bezeichnung;
-    private boolean belegt;
-    private boolean gesperrt;
+    private boolean belegt;/**true= belegt; false= nicht belegt*/
+    private boolean gesperrt;/**true= gesperrt; false= nicht gesperrt*/
     private double laenge;
     private Weiche anfang;
     private Weiche ende;
     
     /** Datenmodell:
      * Konstruktor Gleisstueck
-     * @param b Bezeichnung
+     * @param b Bezeichnung 
      * @param l Laenge
      * @param a Anfangsweiche
      * @param e Endweiche
