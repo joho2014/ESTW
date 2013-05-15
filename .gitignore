@@ -8,3 +8,6 @@
 
 # MacOSX Finder Files #
 .DS_Store
+
+# BlueJ #
+src/doc/*
