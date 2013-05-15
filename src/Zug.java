@@ -9,7 +9,7 @@ public class Zug
 {
     private int position,start,ziel;
     private String name;
-    private int Weg;
+    private List weg;
     
     /**
      * Erstellt einen Zug
@@ -20,7 +20,7 @@ public class Zug
         start = s;
         ziel = z;
         name = n;
-        Weg = 3;
+        weg = null;
     }
     
     // -------------------------------------------Get-Methoden---------------------------------------------
@@ -85,9 +85,14 @@ public class Zug
      *        
      * @return      Weg
      */
-    public String wegErstellen(int st, int zi)
+    public List wegErstellen(int st, int zi)
+    //Bahnhof -> int:
+    //Lindau : 1
+    // Zerbst: 2
+    //Barby : 3
+    //Prödel : 4
     {
-        return null; //dummy
+        return null; //damits compiled
     }
     
 }
