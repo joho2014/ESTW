@@ -1,23 +1,23 @@
 public class Weiche
 {
     private boolean stellung;
-    private Gleisstück nächsterP;
-    private Gleisstück nächsterM;
-    private Gleisstück anfang;
+    private Gleisstueck naechsterP;
+    private Gleisstueck naechsterM;
+    private Gleisstueck anfang;
     private String bezeichnung;
     private boolean gesperrt;
     
     /** Datenmodell:
      * Konstruktor Weiche 
      * @param b Stellung
-     * @param np Nächstes Gleisstück Plusstellung
-     * @param nm Nächstes Gleisstück Minusstellung
-     * @param a Anfang des Gleisstücks
+     * @param np Naechstes Gleisstueck Plusstellung
+     * @param nm Naechstes Gleisstueck Minusstellung
+     * @param a Anfang des Gleisstuecks
      */
-    public Weiche(String b, Gleisstück np, Gleisstück nm, Gleisstück a) {
+    public Weiche(String b, Gleisstueck np, Gleisstueck nm, Gleisstueck a) {
         stellung = true;
-        nächsterP = np;
-        nächsterM = nm;
+        naechsterP = np;
+        naechsterM = nm;
         anfang = a;
         bezeichnung = b;
     }
@@ -41,55 +41,55 @@ public class Weiche
     }
     
     /** Datenmodell:
-     * Stellung des nächsten Gleisstücks in Plusstellung wird gesetzt.
-     * @param g Nächstes Gleisstück in Plusstellung
+     * Stellung des naechsten Gleisstuecks in Plusstellung wird gesetzt.
+     * @param g Naechstes Gleisstueck in Plusstellung
      */
-    public void setNächsterP(Gleisstück g)
+    public void setNaechsterP(Gleisstueck g)
     {
-        nächsterP=g;
+        naechsterP=g;
     }
     
     /** Datenmodell:
-     * Ausgabe des folgenden Gleisstücks in Plusstellung.
-     * @return Gleisstück nächstes Gleisstück in Plusstellung
+     * Ausgabe des folgenden Gleisstuecks in Plusstellung.
+     * @return Gleisstueck naechstes Gleisstueck in Plusstellung
      */
-    public Gleisstück getNächsterP ()
+    public Gleisstueck getNaechsterP ()
     {
-        return nächsterP;
+        return naechsterP;
     }
     
     /** Datenmodell:
-     * Stellung des nächsten Gleisstücks in Minusstellung wird gesetzt.
-     * @param g Nächstes Gleisstück in Minusstellung
+     * Stellung des naechsten Gleisstuecks in Minusstellung wird gesetzt.
+     * @param g Naechstes Gleisstueck in Minusstellung
      */
-    public void setNächsterM(Gleisstück g)
+    public void setNaechsterM(Gleisstueck g)
     {
-        nächsterM=g;
+        naechsterM=g;
     }
     
     /** Datenmodell:
-     * Ausgabe des folgenden Gleisstücks in Minusstellung.
-     * @return Gleisstück nächstes Gleisstück in Minusstellung
+     * Ausgabe des folgenden Gleisstuecks in Minusstellung.
+     * @return Gleisstueck naechstes Gleisstueck in Minusstellung
      */
-    public Gleisstück getNächsterM ()
+    public Gleisstueck getNaechsterM ()
     {
-        return nächsterM;
+        return naechsterM;
     }
     
     /** Datenmodell:
-     * Das Anfangsgleisstücks wird gesetzt.
-     * @param g Anfangsgleisstück
+     * Das Anfangsgleisstuecks wird gesetzt.
+     * @param g Anfangsgleisstueck
      */
-    public void setAnfang(Gleisstück g)
+    public void setAnfang(Gleisstueck g)
     {
         anfang=g;
     }
     
     /** Datenmodell:
-     * Ausgabe des Anfangsgleisstücks.
-     * @return Gleisstück Anfangsgleisstücks
+     * Ausgabe des Anfangsgleisstuecks.
+     * @return Gleisstueck Anfangsgleisstuecks
      */
-    public Gleisstück getAnfang ()
+    public Gleisstueck getAnfang ()
     {
         return anfang;
     }

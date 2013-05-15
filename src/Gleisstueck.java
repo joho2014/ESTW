@@ -1,24 +1,24 @@
-public class Gleisstück
+public class Gleisstueck
 {
     private String bezeichnung;
     private boolean belegt;
     private boolean gesperrt;
-    private double länge;
+    private double laenge;
     private Weiche anfang;
     private Weiche ende;
     
     /** Datenmodell:
-     * Konstruktor Gleisstück
+     * Konstruktor Gleisstueck
      * @param b Bezeichnung
-     * @param l Länge
+     * @param l Laenge
      * @param a Anfangsweiche
      * @param e Endweiche
      */
-    public Gleisstück(String b, double l, Weiche a, Weiche e) {
+    public Gleisstueck(String b, double l, Weiche a, Weiche e) {
         bezeichnung = b;
         belegt = false;
         gesperrt = false;
-        länge = l;
+        laenge = l;
         anfang = a;
         ende = e;
     }
@@ -78,21 +78,21 @@ public class Gleisstück
     }
     
     /** Datenmodell:
-     * Länge wird gesetzt.
-     * @param l Länge
+     * Laenge wird gesetzt.
+     * @param l Laenge
      */
-    public void setLänge(double l)
+    public void setLaenge(double l)
     {
-        länge = l;
+        laenge = l;
     }
     
     /** Datenmodell:
-     * Ausgabe der Länge.
-     * @return double Länge
+     * Ausgabe der Laenge.
+     * @return double Laenge
      */
-    public double getLänge ()
+    public double getLaenge ()
     {
-        return länge;
+        return laenge;
     }
     
     /** Datenmodell:

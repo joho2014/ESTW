@@ -1,6 +1,6 @@
 public class Datenmodell
 {
-    private Gleisstück g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,g13,g14,g15,g16,g17,g18,g19,g20,g21,g22,g23,g24,g25,g26,g27,g28, g29;
+    private Gleisstueck g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,g13,g14,g15,g16,g17,g18,g19,g20,g21,g22,g23,g24,g25,g26,g27,g28, g29;
     private Weiche w0,wnZ,wvZ,w1,w2,w3,w5,w6,w7,w8,wvnB,w10,w11,w12,wvP,wnP,wnL,wvL,w13,w14,w15,w16,w40,w39,w44,w43,w38,w37,w42,w41,w17;
     private Signal s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s20,s21,s22,s25,s26,s30,s31;
     private Signal[]s;
@@ -8,36 +8,36 @@ public class Datenmodell
     
     public Datenmodell()
     {
-        g0=new Gleisstück("Gleisstück 0", 0, w0, w0);
-        g1=new Gleisstück("Gleisstück 1", 1, w3, w5);
-        g2=new Gleisstück("Gleisstück 2", 1, w5, wvnB);
-        g3=new Gleisstück("Gleisstück 3", 1, w44, w6);
-        g4=new Gleisstück("Gleisstück 4", 1, w43, w6);
-        g5=new Gleisstück("Gleisstück 5", 1, wnZ, w1);
-        g6=new Gleisstück("Gleisstück 6", 1, w1, w7);
-        g7=new Gleisstück("Gleisstück 7", 1, w7, w11);
-        g8=new Gleisstück("Gleisstück 8", 1, w11, wvP);
-        g9=new Gleisstück("Gleisstück 9", 1, wvZ, w2);
-        g10=new Gleisstück("Gleisstück 10", 1, w2, w8);
-        g11=new Gleisstück("Gleisstück 11", 1, w8, w10);
-        g12=new Gleisstück("Gleisstück 12", 1, w12, wnP);
-        g13=new Gleisstück("Gleisstück 13", 1, wnL, w13);
-        g14=new Gleisstück("Gleisstück 14", 1, w13, w15);
-        g15=new Gleisstück("Gleisstück 15", 1, w15, w40);
-        g16=new Gleisstück("Gleisstück 16", 1, w40, w44);
-        g17=new Gleisstück("Gleisstück 17", 1, wvL, w14);
-        g18=new Gleisstück("Gleisstück 18", 1, w14, w16);
-        g19=new Gleisstück("Gleisstück 19", 1, w16, w39);
-        g20=new Gleisstück("Gleisstück 20", 1, w39, w38);
-        g21=new Gleisstück("Gleisstück 21", 1, w38, w42);
-        g22=new Gleisstück("Gleisstück 22", 1, w42, w43);
-        g23=new Gleisstück("Gleisstück 23", 1, w17, w37);
-        g24=new Gleisstück("Gleisstück 24", 1, w37, w41);
-        g25=new Gleisstück("Gleisstück 25", 1, w41, w10);
-        g26=new Gleisstück("Gleisstück 26", 1, w10, w12);
-        g27=new Gleisstück("Gleisstück 27", 1, w1, w3);
-        g28=new Gleisstück("Gleisstück 28", 1, w6, w5);
-        g28=new Gleisstück("Gleisstück 29", 1, w16, w17);
+        g0=new Gleisstueck("Gleisstueck 0", 0, w0, w0);
+        g1=new Gleisstueck("Gleisstueck 1", 1, w3, w5);
+        g2=new Gleisstueck("Gleisstueck 2", 1, w5, wvnB);
+        g3=new Gleisstueck("Gleisstueck 3", 1, w44, w6);
+        g4=new Gleisstueck("Gleisstueck 4", 1, w43, w6);
+        g5=new Gleisstueck("Gleisstueck 5", 1, wnZ, w1);
+        g6=new Gleisstueck("Gleisstueck 6", 1, w1, w7);
+        g7=new Gleisstueck("Gleisstueck 7", 1, w7, w11);
+        g8=new Gleisstueck("Gleisstueck 8", 1, w11, wvP);
+        g9=new Gleisstueck("Gleisstueck 9", 1, wvZ, w2);
+        g10=new Gleisstueck("Gleisstueck 10", 1, w2, w8);
+        g11=new Gleisstueck("Gleisstueck 11", 1, w8, w10);
+        g12=new Gleisstueck("Gleisstueck 12", 1, w12, wnP);
+        g13=new Gleisstueck("Gleisstueck 13", 1, wnL, w13);
+        g14=new Gleisstueck("Gleisstueck 14", 1, w13, w15);
+        g15=new Gleisstueck("Gleisstueck 15", 1, w15, w40);
+        g16=new Gleisstueck("Gleisstueck 16", 1, w40, w44);
+        g17=new Gleisstueck("Gleisstueck 17", 1, wvL, w14);
+        g18=new Gleisstueck("Gleisstueck 18", 1, w14, w16);
+        g19=new Gleisstueck("Gleisstueck 19", 1, w16, w39);
+        g20=new Gleisstueck("Gleisstueck 20", 1, w39, w38);
+        g21=new Gleisstueck("Gleisstueck 21", 1, w38, w42);
+        g22=new Gleisstueck("Gleisstueck 22", 1, w42, w43);
+        g23=new Gleisstueck("Gleisstueck 23", 1, w17, w37);
+        g24=new Gleisstueck("Gleisstueck 24", 1, w37, w41);
+        g25=new Gleisstueck("Gleisstueck 25", 1, w41, w10);
+        g26=new Gleisstueck("Gleisstueck 26", 1, w10, w12);
+        g27=new Gleisstueck("Gleisstueck 27", 1, w1, w3);
+        g28=new Gleisstueck("Gleisstueck 28", 1, w6, w5);
+        g28=new Gleisstueck("Gleisstueck 29", 1, w16, w17);
        
 
         w0=new Weiche("Weiche 0",g0,g0,g0);
