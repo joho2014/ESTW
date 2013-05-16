@@ -11,3 +11,6 @@
 
 # BlueJ #
 src/doc/*
+
+# Build Copies #
+src/*.jpg

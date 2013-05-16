@@ -2,6 +2,10 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.File;
+import java.net.URL;
+
+
 
 class DieGrafik 
 {
@@ -91,7 +95,14 @@ class DieGrafik
         public void paintComponent(Graphics g)
         {
             Graphics2D g2d = (Graphics2D) g;
-            ImageIcon ii = new ImageIcon("H:/Projektarbeit/DieGrafik/Gleise 1280x985.jpg");
+            String pName = "Gleise 1280x985.jpg";
+            ImageIcon ii;
+            if (new File("../img/" + pName).exists()) {
+                ii = new ImageIcon("../img/" + pName);
+            }
+            else{
+                ii = new ImageIcon(getClass().getResource(pName));
+            }
             ii.paintIcon(this, g2d, 0, 0);
             g2d.setPaint(Color.red);
             g2d.fillOval(620,468,8,8);// S1

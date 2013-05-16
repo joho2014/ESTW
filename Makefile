@@ -2,7 +2,8 @@ all: build
 
 build:
 	javac src/*.java
-	cd src; jar cfe ESTW.jar Main *.class; mv ESTW.jar ..
+	cp img/* src/
+	cd src; jar cfe ESTW.jar Main *.class *.jpg; mv ESTW.jar ..
 	@echo 'Fertig!'
 	@echo 'Zum Ausführen: java -jar ESTW.jar [<args>]'
 
@@ -16,6 +17,7 @@ help:
 	@echo "	install     Installs the .jar on the system. (Only Mac OS)"
 	@echo "	run         Runs the .jar."
 	@echo "	clean       Deletes the .jar and the binaries.\n"
+
 list:
 	@cd src; \
 	ls *.java
@@ -24,9 +26,9 @@ install:
 	mv ESTW.jar /Applications
 
 run:
-	java -jar ESTW.jar
+	@java -jar ESTW.jar
 
 clean:
-	rm -f src/*.class src/*.ctxt src/*.bluej
+	rm -f src/*.class src/*.ctxt src/*.bluej src/*.jpg
 	rm -f ESTW.jar
 
