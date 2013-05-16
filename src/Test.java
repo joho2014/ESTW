@@ -1,4 +1,4 @@
-public class Test{
+﻿public class Test{
 	private Steuerung St;
 	public void test(){
 		//1. Barby → Zerbst; zeitgleich Prödel → Barby
@@ -71,8 +71,39 @@ Steuerung.fahren();
 }
 
 
-//<<<<<<< HEAD
-//=======
+public void test4()
+{
+Zug zug1  = Steuerung.zugErstellen(17,12) 
+Steuerung.blockfahren();
+s21.setStellung(true);
+w17.setStellung(false);
+Steuerung.blockfahren();
+s18.setStellung(true);
+w39.setStellung(false);
+Steuerung.blockfahren();
+}
+
+public void test5()
+{
+Zug zug1 = Steuerung.zugErstellen(5,13)
+Zug zug2  = Steuerung.zugErstellen(17,9) 
+}
+
+public void test6() //zeitgleich selbe Position
+Zug zug1  = Steuerung.zugErstellen(2,13) 
+Zug zug2  = Steuerung.zugErstellen(2,13) 
 
 }
-//>>>>>>> Test2
+
+public void test6() // Fahrt gegen die Fahrrichtung
+{
+Zug zug1 = Steuerung.zugErstellen(12,9);
+Steuerung.fahren();
+}
+
+
+
+
+
+}
+
