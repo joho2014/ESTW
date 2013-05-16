@@ -72,7 +72,10 @@ class DieGrafik
         frame.addMouseListener(new MausListener());
         frame.setVisible(true);
     }
-    
+    private static void signalMalen(int signalNr)
+    {
+        
+    }
     
     
     private static class KnopfListener implements ActionListener
