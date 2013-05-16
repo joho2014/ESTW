@@ -7,30 +7,30 @@
 public class Steuerung
 {
     
-    ;
+    private List zuglist;
 
     /**
      * Constructor for objects of class Steuerung
      */
-    public 	Steuerung(){}
+    public  Steuerung(){}
 
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Jeder Zug wird auf den nächsten Gleisabschnitt bewegt, falls möglich
+     *
      */
     public void blockFahren()
     {
-        
+        if (
     }
     
     /**
-     * An example of a method - replace this comment with your own
+     * Erstellt einen Zug
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param   start       Legt den Startbahnhof fest
+     *          ziel        Legt den Zielbahnhof fest
+     *          name        Legt den Namen des Zuges fest
+     * @return     Einen Zug
      */
     public Zug zugErstellen(int start, int ziel, String name)
     {
@@ -38,12 +38,9 @@ public class Steuerung
     }
     
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Züge fahren komplette Strecke
      */
-    public void fahren()
+    public void fahren() // Wird ganz am Ende falls möglich gemacht
     {
         
     }
