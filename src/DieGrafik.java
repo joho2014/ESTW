@@ -1,8 +1,9 @@
 import java.awt.*;
 import java.util.*;
+import java.io.File;
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.File;
+import javax.swing.event.*;
 
 
 
@@ -11,10 +12,39 @@ class DieGrafik
     private static JFrame frame = new JFrame("Bahnhof Güterglück");
     private static JPanel panel = new Zeichner();
     private static Datenmodell datenmodell;
+    private static Steuerung steuerung;
+    private static ArrayList<Zug> zuege = new ArrayList<Zug>();
+    
     private static int[][] signale = new int[25][2];
-    public DieGrafik(Datenmodell d)
+    private static int[][] weichen = new int[31][4];
+    
+    private static JFrame frame1;
+    private static JRadioButton[] starts = new JRadioButton[4];
+    private static JRadioButton[] ziele = new JRadioButton[4];
+    private static ButtonGroup groupStart = new ButtonGroup();
+    private static ButtonGroup groupZiel = new ButtonGroup();
+    private static JTextField textArea = new JTextField();
+    private static int startnr = -1;
+    private static int zielnr = -1;
+    public DieGrafik(Datenmodell d, Steuerung s)
     {
         datenmodell = d;
+        steuerung = s;
+        starts[0] = new JRadioButton("Lindau");
+        starts[1] = new JRadioButton("Zerbst");
+        starts[2] = new JRadioButton("Barby");
+        starts[3] = new JRadioButton("Prödel");
+        ziele[0] = new JRadioButton("Lindau ");
+        ziele[1] = new JRadioButton("Zerbst ");
+        ziele[2] = new JRadioButton("Barby ");
+        ziele[3] = new JRadioButton("Prödel ");
+        ItemListener ils = new AuswahlListener();
+        ItemListener ilz = new AuswahlListener();
+        for(int i = 0; i < 4; i++)
+        {
+            starts[i].addItemListener(ils);
+            ziele[i].addItemListener(ilz);
+        }
         signale[0][0] = 620;
         signale[0][1] = 468;
         signale[1][0] = 848;
@@ -65,8 +95,9 @@ class DieGrafik
         signale[23][1] = 616;
         signale[24][0] = 1058;
         signale[24][1] = 506;
+        los();
     }
-    public static void main(String[] s)
+    private static void los()
     {
         frame.getContentPane().add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,18 +106,20 @@ class DieGrafik
         frame.addMouseListener(new MausListener());
         frame.setVisible(true);
     }
-    private static void signalMalen(int signalNr)
+    
+    public static void update()
     {
-        
+        frame.repaint();
     }
     
-    
-    private static class KnopfListener implements ActionListener
+    public static void fehlerAusgeben(String fehlerAusgabe)
     {
-        public void actionPerformed(ActionEvent a)
-        {
-                
-        }
+        JOptionPane.showMessageDialog(frame,fehlerAusgabe,"Error",JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public static void textAusgeben(String text)
+    {
+        JOptionPane.showMessageDialog(frame,text,"",JOptionPane.INFORMATION_MESSAGE);
     }
     
     private static class Zeichner extends JPanel
@@ -103,32 +136,30 @@ class DieGrafik
                 ii = new ImageIcon(getClass().getResource(pName));
             }
             ii.paintIcon(this, g2d, 0, 0);
-            g2d.setPaint(Color.red);
-            g2d.fillOval(620,468,8,8);// S1
-            g2d.fillOval(848,468,8,8);// S2
-            g2d.fillOval(1122,468,8,8);// S3
-            g2d.fillOval(544,498,8,8);// S4
-            g2d.fillOval(625,484,8,8);// S5
-            g2d.fillOval(701,482,8,8);// S6
-            g2d.fillOval(849,484,8,8);// S7
-            g2d.fillOval(1114,484,8,8);// S8
-            g2d.fillOval(701,498,8,8);// S9
-            g2d.fillOval(1022,498,8,8);// S10
-            g2d.fillOval(614,450,8,8);// S11
-            g2d.fillOval(787,416,8,8);// S12
-            g2d.fillOval(766,432,8,8);// S13
-            g2d.fillOval(775,451,8,8);// S14
-            g2d.fillOval(839,418,8,8);// S15
-            g2d.fillOval(174,581,8,8);// S16
-            g2d.fillOval(283,567,8,8);// S17
-            g2d.fillOval(500,581,8,8);// S18
-            g2d.fillOval(165,600,8,8);// S20
-            g2d.fillOval(284,585,8,8);// S21
-            g2d.fillOval(499,600,8,8);// S22
-            g2d.fillOval(304,602,8,8);// S25
-            g2d.fillOval(654,602,8,8);// S28
-            g2d.fillOval(507,616,8,8);// S30
-            g2d.fillOval(1058,506,8,8);// S31
+            g2d.setPaint(Color.black);
+            g2d.drawPolygon(new int[] {97,220,220,97},new int[] {123,123,97,97},4);
+            g2d.setPaint(Color.white);
+            g2d.drawPolygon(new int[] {99,218,218,99},new int[] {121,121,99,99},4);
+            g2d.setPaint(Color.black);
+            g2d.drawString("Enter: Zug erstellen",105,115);
+            for(int i = 0; i < 25; i++)
+            {
+                if(datenmodell.s[i].getStellung())
+                    g2d.setPaint(Color.red);
+                else
+                    g2d.setPaint(Color.green);
+                g2d.fillOval(signale[i][0],signale[i][1],8,8);
+            }
+            g2d.setPaint(Color.white);
+            for(int i = 0; i < 31; i++)
+            {
+                if(datenmodell.w[i].getStellung())
+                    g2d.drawPolygon(new int[] {weichen[i][0],weichen[i][0]+18,weichen[i][0]+18,weichen[i][0]},
+                                    new int[] {weichen[i][1],weichen[i][1],weichen[i][1]+18,weichen[i][1]+18},4);
+                else
+                    g2d.drawPolygon(new int[] {weichen[i][2],weichen[i][2]+10,weichen[i][2]+10,weichen[i][2]},
+                                    new int[] {weichen[i][3],weichen[i][3],weichen[i][3]+10,weichen[i][3]+10},4);
+            }
         }
     }
     
@@ -138,24 +169,46 @@ class DieGrafik
         {
             if(k.getKeyCode() == KeyEvent.VK_ENTER)
             {
-                JFrame frame = new JFrame("Benutzeroberfläche");
+                frame1 = new JFrame("Zug erstellen");
                 JPanel panel = new JPanel(new GridLayout(2,2,10,10));
-                JButton button1 = new JButton("1");
-                JButton button2 = new JButton("2");
-                JButton button3 = new JButton("3");
-                JButton button4 = new JButton("4");
+                JPanel startZielPanel = new JPanel(new GridLayout(5,2,10,10));
+                JPanel namePanel = new JPanel(new GridLayout(2,1,10,10));
+                
+                groupStart.add(starts[0]);
+                groupZiel.add(ziele[0]);
+                groupStart.add(starts[1]);
+                groupZiel.add(ziele[1]);
+                groupStart.add(starts[2]);
+                groupZiel.add(ziele[2]);
+                groupStart.add(starts[3]);
+                groupZiel.add(ziele[3]);
+                
+                startZielPanel.add(new JLabel("Start"));
+                startZielPanel.add(new JLabel("Ziel"));
+                startZielPanel.add(starts[0]);
+                startZielPanel.add(ziele[0]);
+                startZielPanel.add(starts[1]);
+                startZielPanel.add(ziele[1]);
+                startZielPanel.add(starts[2]);
+                startZielPanel.add(ziele[2]);
+                startZielPanel.add(starts[3]);
+                startZielPanel.add(ziele[3]);
+                panel.add(startZielPanel);
+                
+                namePanel.add(new JLabel("Name/Bezeichnung des Zuges"));
+                namePanel.add(textArea);
+                panel.add(namePanel);
+                
+                JButton button1 = new JButton("Zug erstellen");
                 button1.addActionListener(new KnopfListener());
-                button2.addActionListener(new KnopfListener());
-                button3.addActionListener(new KnopfListener());
-                button4.addActionListener(new KnopfListener());
+                button1.setPreferredSize(new Dimension(100,40));
                 panel.add(button1);
-                panel.add(button2);
-                panel.add(button3);
-                panel.add(button4);
-                frame.getContentPane().add(panel);
-                frame.setBounds(50,50,400,400);
-                frame.repaint();
-                frame.setVisible(true);
+                
+                frame1.getContentPane().add(panel);
+                frame1.setBounds(50,50,400,400);
+                frame1.repaint();
+                frame1.pack();
+                frame1.setVisible(true);
             }
             else if(k.getKeyCode() == KeyEvent.VK_ESCAPE)
             {
@@ -192,9 +245,78 @@ class DieGrafik
         }
         
         public void mousePressed(MouseEvent m)
-        {}
+        {
+        
+        }
         
         public void mouseReleased(MouseEvent m)
-        {}
+        {
+        
+        }
+    }
+    
+    private static class KnopfListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent a)
+        {
+            if((startnr > 0)&&(startnr > 0))
+            {
+                if((textArea.getText() != null)&&(!(textArea.getText().equals(""))))
+                {
+                    zuege.add(steuerung.zugErstellen(startnr,startnr,textArea.getText()));
+                    frame1.setVisible(false);
+                    groupStart.clearSelection();
+                    groupZiel.clearSelection();
+                    textArea.setText(null);
+                    startnr = -1;
+                    zielnr = -1;
+                }
+                else
+                {
+                    fehlerAusgeben("Der Zug hat keinen Bezeichner!");
+                }
+            }
+            else
+            {
+                fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
+            }
+        }
+    }
+    private static class AuswahlListener implements ItemListener
+    {
+        boolean ausgewaehlt = false;
+        public void itemStateChanged(ItemEvent a)
+        {
+            if(!ausgewaehlt)
+            {
+                JRadioButton knopf = ((JRadioButton)a.getItem());
+                for(int i = 0; i < 4; i++)
+                {
+                    if(starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[i].setEnabled(false);
+                        startnr = i;
+                    }
+                    if(ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[i].setEnabled(false);
+                        zielnr = i;
+                    }
+                }
+                ausgewaehlt = true;
+            }
+            else
+            {
+                JRadioButton knopf = ((JRadioButton)a.getItem());
+                for(int i = 0; i < 4; i++)
+                {
+                    if(starts[i].getText().equals(knopf.getText()))
+                        ziele[i].setEnabled(true);
+                    if(ziele[i].getText().equals(knopf.getText()))
+                        starts[i].setEnabled(true);
+                }
+                ausgewaehlt = false;
+            }
+        }
     }
 }
