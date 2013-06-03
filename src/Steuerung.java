@@ -50,8 +50,4 @@ public class Steuerung
 	{
 		
 	}
-	
-	public static void main(String[] s){
-		Steuerung st = new Steuerung();
-	}
 }
