@@ -1,5 +1,6 @@
 public class Test{
 	private Steuerung st;
+	private Datenmodell d;
 
 	/*
 	1. Barby → Zerbst; zeitgleich Prödel → Barby
@@ -51,19 +52,6 @@ public class Test{
 		st.blockFahren();
 		st.fahren();
 	}
-
-	/*
-	public void test4(){
-		Zug zug1  = st.zugErstellen(17, 12, "Zug 1"); 
-		st.blockFahren();
-		//s21.setStellung(true);
-		//w17.setStellung(false);
-		st.blockFahren();
-		//s18.setStellung(true);
-		//w39.setStellung(false);
-		st.blockFahren();
-	}
-	*/
 
 	/*
 	5. Zerbst → Lindau; Lindau → Prödel (Beides Fahrstrecken)
