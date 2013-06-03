@@ -170,7 +170,8 @@ class DieGrafik
             if(k.getKeyCode() == KeyEvent.VK_ENTER)
             {
                 frame1 = new JFrame("Zug erstellen");
-                JPanel panel = new JPanel(new GridLayout(2,2,10,10));
+                GridLayout gl = new GridLayout(2,2,20,20);
+                JPanel panel = new JPanel(gl);
                 JPanel startZielPanel = new JPanel(new GridLayout(5,2,10,10));
                 JPanel namePanel = new JPanel(new GridLayout(2,1,10,10));
                 
@@ -259,7 +260,7 @@ class DieGrafik
     {
         public void actionPerformed(ActionEvent a)
         {
-            if((startnr > 0)&&(zielnr > 0))
+            if((startnr >= 0)&&(zielnr >= 0))
             {
                 if((textArea.getText() != null)&&(!(textArea.getText().equals(""))))
                 {
@@ -278,7 +279,7 @@ class DieGrafik
             }
             else
             {
-                fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
+                fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!" + startnr + zielnr);
             }
         }
     }
