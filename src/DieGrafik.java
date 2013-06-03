@@ -137,11 +137,12 @@ class DieGrafik
             }
             ii.paintIcon(this, g2d, 0, 0);
             g2d.setPaint(Color.black);
-            g2d.drawPolygon(new int[] {97,220,220,97},new int[] {123,123,97,97},4);
+            g2d.drawPolygon(new int[] {97,270,270,97},new int[] {123,123,97,97},4);
             g2d.setPaint(Color.white);
-            g2d.drawPolygon(new int[] {99,218,218,99},new int[] {121,121,99,99},4);
+            g2d.drawPolygon(new int[] {99,328,328,99},new int[] {121,121,99,99},4);
             g2d.setPaint(Color.black);
             g2d.drawString("Enter: Zug erstellen",105,115);
+            g2d.drawString("Plus: Weichen & Signale verändern",105,135);
             for(int i = 0; i < 25; i++)
             {
                 if(datenmodell.s[i].getStellung())
@@ -170,8 +171,7 @@ class DieGrafik
             if(k.getKeyCode() == KeyEvent.VK_ENTER)
             {
                 frame1 = new JFrame("Zug erstellen");
-                GridLayout gl = new GridLayout(2,2,20,20);
-                JPanel panel = new JPanel(gl);
+                JPanel panel = new JPanel(new GridLayout(2,2,20,20));
                 JPanel startZielPanel = new JPanel(new GridLayout(5,2,10,10));
                 JPanel namePanel = new JPanel(new GridLayout(2,1,10,10));
                 
@@ -214,6 +214,14 @@ class DieGrafik
             else if(k.getKeyCode() == KeyEvent.VK_ESCAPE)
             {
                 System.exit(0);
+            }
+            else if(k.getKeyCode() == KeyEvent.VK_PLUS)
+            {
+                JFrame frame2 = new JFrame("Signale & Weichen verändern");
+                JPanel panel = new JPanel();
+                frame2.getContentPane().add(panel);
+                frame2.setBounds(50,50,400,400);
+                frame2.setVisible(true);
             }
         }
         
@@ -279,7 +287,7 @@ class DieGrafik
             }
             else
             {
-                fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!" + startnr + zielnr);
+                fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
             }
         }
     }
