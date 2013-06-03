@@ -6,8 +6,9 @@
 *.jar
 *.bluej
 
-# MacOSX Finder Files #
+# OS Files #
 .DS_Store
+Thumbs.db
 
 # BlueJ #
 src/doc/*

@@ -259,11 +259,11 @@ class DieGrafik
     {
         public void actionPerformed(ActionEvent a)
         {
-            if((startnr > 0)&&(startnr > 0))
+            if((startnr > 0)&&(zielnr > 0))
             {
                 if((textArea.getText() != null)&&(!(textArea.getText().equals(""))))
                 {
-                    zuege.add(steuerung.zugErstellen(startnr,startnr,textArea.getText()));
+                    zuege.add(steuerung.zugErstellen(startnr,zielnr,textArea.getText()));
                     frame1.setVisible(false);
                     groupStart.clearSelection();
                     groupZiel.clearSelection();
