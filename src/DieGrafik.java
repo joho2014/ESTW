@@ -24,6 +24,8 @@ class DieGrafik
     private static ButtonGroup groupStart = new ButtonGroup();
     private static ButtonGroup groupZiel = new ButtonGroup();
     private static JTextField textArea = new JTextField();
+    private static JComboBox signalBox;
+    private static JComboBox weichenBox;
     private static int startnr = -1;
     private static int zielnr = -1;
     public DieGrafik(Datenmodell d, Steuerung s)
@@ -219,13 +221,13 @@ class DieGrafik
             {
                 JFrame frame2 = new JFrame("Signale & Weichen verändern");
                 JPanel panel = new JPanel(new GridLayout(2,3));
-                JComboBox signalBox = new JComboBox(datenmodell.s);
+                signalBox = new JComboBox(datenmodell.s);
                 panel.add(signalBox);
                 JButton rotButton = new JButton("auf rot stellen");
                 JButton gruenButton = new JButton("auf grün stellen");
                 panel.add(rotButton);
                 panel.add(gruenButton);
-                JComboBox weichenBox = new JComboBox(datenmodell.w);
+                weichenBox = new JComboBox(datenmodell.w);
                 panel.add(weichenBox);
                 JButton plusButton = new JButton("auf plus stellen");
                 JButton minusButton = new JButton("auf minus stellen");
@@ -338,6 +340,16 @@ class DieGrafik
                         starts[i].setEnabled(true);
                 }
                 ausgewaehlt = false;
+            }
+        }
+    }
+    private static class UmstellListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent a)
+        {
+            if((((JButton)a.getSource()).getText().equals("auf rot stellen")))
+            {
+                datenmodell.s[signalBox.getSelectedIndex()].setStellung(true);
             }
         }
     }
