@@ -88,7 +88,7 @@ public class Zug
     public List wegErstellen(int st, int zi)
     //Bahnhof -> int:
     //Lindau : 1
-    // Zerbst: 2
+    //Zerbst: 2
     //Barby : 3
     //Prödel : 4
     {
