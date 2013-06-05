@@ -1,10 +1,11 @@
 public class Test{
 	private Steuerung st;
 	private Datenmodell d;
+	private DieGrafik g;
 
 	/*
-	1. Barby → Zerbst; zeitgleich Prödel → Barby
-	Ziel: Kollision auf Südkurve
+	1. Barby --> Zerbst; zeitgleich Poedel --> Barby
+	Ziel: Kollision auf Suedkurve
 	*/
 
 	public void test1(){
@@ -12,11 +13,12 @@ public class Test{
 		st.blockFahren();
 		st.blockFahren();
 		Zug zug2 = st.zugErstellen(2, 5, "Zug 2");
+		g.textAusgeben("Position Zug1: "+Integer.toString(zug1.getPosition())+"\n"+"Position Zug2: "+Integer.toString(zug2.getPosition()));
 		st.fahren();
 	}
 
 	/*
-	2. Barby → Barby
+	2. Barby --> Barby
 	Ziel: Kann der Zug wenden? Was passiert,wenn Ziel = Start
 	*/
 	public void test2(){
@@ -25,8 +27,8 @@ public class Test{
 	}
 
 	/*
-	3. Lindau → Prödel; zeitgleich Prödel → Lindau
-	Ziel: Kollision auf „Nordkurve“
+	3. Lindau --> Proedel; zeitgleich Proedel --> Lindau
+	Ziel: Kollision auf Nordkurve“
 	*/
 	public void test3(){
 		Zug zug1 = st.zugErstellen(17, 12, "Zug 1");
@@ -38,23 +40,23 @@ public class Test{
 	}
 
 	/*
-	4. Lindau → Prödel (Fahrstrecke)
+	4. Lindau --> Proedel (Fahrstrecke)
 	Ziel: Versuch,jede Weiche und jedes Signal zu verstellen. 
 	*/
 	public void test4(){
 		Zug zug0 = st.zugErstellen(17, 12, "Zug 0");
 		st.blockFahren();
-		//s21.setStellung(true);
-		//w17.setStellung(false);
+		d.s21.setStellung(true);
+		d.w17.setStellung(false);
 		st.blockFahren();
-		//s18.setStellung(true);
-		//w39.setStellung(false);
+		d.s18.setStellung(true);
+		d.w39.setStellung(false);
 		st.blockFahren();
 		st.fahren();
 	}
 
 	/*
-	5. Zerbst → Lindau; Lindau → Prödel (Beides Fahrstrecken)
+	5. Zerbst --> Lindau; Lindau --> Proedel (Beides Fahrstrecken)
 	Ziel:Erschaffen zweier sich schneidender Fahrstrecken 
 	*/
 	public void test5(){
@@ -63,8 +65,8 @@ public class Test{
 	}
 
 	/*
-	6. Barby → Lindau; Barby → Lindau
-	Ziel:Zwei Züge zeitgleich auf der selben Position.
+	6. Barby --> Lindau; Barby --> Lindau
+	Ziel:Zwei Zuege zeitgleich auf der selben Position.
 	*/
 	public void test6(){
 		Zug zug1  = st.zugErstellen(2, 13, "Zug 1");
@@ -72,11 +74,10 @@ public class Test{
 		st.fahren();
 	}
 
-	/*
-	public void test6() // Fahrt gegen die Fahrrichtung
+	public void test7() // Fahrt gegen die Fahrrichtung
 	{
 		Zug zug1 = st.zugErstellen(12, 9, "Zug 1");
 		st.fahren();
 	}
-	*/
+
 }
