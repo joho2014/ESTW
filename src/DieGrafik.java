@@ -218,10 +218,23 @@ class DieGrafik
             else if(k.getKeyCode() == KeyEvent.VK_PLUS)
             {
                 JFrame frame2 = new JFrame("Signale & Weichen verändern");
-                JPanel panel = new JPanel();
+                JPanel panel = new JPanel(new GridLayout(2,3));
+                JComboBox signalBox = new JComboBox(datenmodell.s);
+                panel.add(signalBox);
+                JButton rotButton = new JButton("auf rot stellen");
+                JButton gruenButton = new JButton("auf grün stellen");
+                panel.add(rotButton);
+                panel.add(gruenButton);
+                JComboBox weichenBox = new JComboBox(datenmodell.w);
+                panel.add(weichenBox);
+                JButton plusButton = new JButton("auf plus stellen");
+                JButton minusButton = new JButton("auf minus stellen");
+                panel.add(plusButton);
+                panel.add(minusButton);
                 frame2.getContentPane().add(panel);
                 frame2.setBounds(50,50,400,400);
                 frame2.setVisible(true);
+                frame2.pack();
             }
         }
         

@@ -67,4 +67,9 @@ public class Signal
     {
         return bezeichnung;
     }
+    
+    public String toString()
+    {
+        return bezeichnung;
+    }
 }

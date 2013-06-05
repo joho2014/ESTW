@@ -128,4 +128,9 @@ public class Weiche
     {
         return gesperrt;
     }
+    
+    public String toString()
+    {
+        return bezeichnung;
+    }
 }
