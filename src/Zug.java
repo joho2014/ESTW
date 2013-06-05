@@ -10,17 +10,19 @@ public class Zug
     private int position,start,ziel;
     private String name;
     private List weg;
+    private Datenmodell datenmodell;
     
     /**
      * Erstellt einen Zug
      */
-    public Zug(int s, int z, String n)
+    public Zug(int s, int z, String n,Datenmodell d)
     {
         position = s;
         start = s;
         ziel = z;
         name = n;
         weg = null;
+        datenmodell = d;
     }
     
     // -------------------------------------------Get-Methoden---------------------------------------------
