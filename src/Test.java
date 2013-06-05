@@ -4,7 +4,7 @@ public class Test{
 	private DieGrafik g;
 
 	/*
-	1. Barby --> Zerbst; zeitgleich Poedel --> Barby
+	1. Barby --> Zerbst; zeitgleich Proedel --> Barby
 	Ziel: Kollision auf Suedkurve
 	*/
 
