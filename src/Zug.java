@@ -94,6 +94,8 @@ public class Zug
     //Barby : 3
     //Prödel : 4
     {
+        // DAS DARF NICHT ADD() SONDERN APPEND() HEIßEN !!    (wird in kürze geändert)
+        
         //Lindau - Zerbst:
         List listLZ = new List(datenmodell.getWeiche(17));
         Node node = list.getHead();
