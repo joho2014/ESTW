@@ -3,8 +3,9 @@ public class Datenmodell
     private Gleisstueck g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,g13,g14,g15,g16,g17,g18,g19,g20,g21,g22,g23,g24,g25,g26,g27,g28, g29;
     private Weiche w0,wnZ,wvZ,w1,w2,w3,w5,w6,w7,w8,wvnB,w10,w11,w12,wvP,wnP,wnL,wvL,w13,w14,w15,w16,w40,w39,w44,w43,w38,w37,w42,w41,w17;
     private Signal s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s20,s21,s22,s25,s26,s30,s31;
-    public Signal[] s;
-    public Weiche[] w;
+    public Signal[]s;
+    public Weiche[]w;
+    public Gleisstueck[]g;
     
     public Datenmodell()
     {
@@ -127,39 +128,79 @@ public class Datenmodell
         s[23]=s30;
         s[24]=s31;
         
-        w= new Weiche[31];
+        w= new Weiche[24];
         w[0]=w0;
-        w[1]=wnZ;
-        w[2]=wvZ;
-        w[3]=w1;
-        w[4]=w2;
-        w[5]=w3;
-        w[6]=w5;
-        w[7]=w6;
-        w[8]=w7;
-        w[9]=w8;
-        w[10]=wvnB;
-        w[11]=w10;
-        w[12]=w11;
-        w[13]=w12;
-        w[14]=wvP;
-        w[15]=wnP;
-        w[16]=wnL;
-        w[17]=wvL;
-        w[18]=w13;
-        w[19]=w14;
-        w[20]=w15;
-        w[21]=w16;
-        w[22]=w40;
-        w[23]=w39;
-        w[24]=w44;
-        w[25]=w43;
-        w[26]=w38;
-        w[27]=w37;
-        w[28]=w42;
-        w[29]=w41;
-        w[30]=w17;
+        w[1]=w1;
+        w[2]=w2;
+        w[3]=w3;
+        w[4]=w5;
+        w[5]=w6;
+        w[6]=w7;
+        w[7]=w8; 
+        w[8]=w10;
+        w[9]=w11;
+        w[10]=w12;
+        w[11]=w13;
+        w[12]=w14;
+        w[13]=w15;
+        w[14]=w16;
+        w[15]=w40;
+        w[16]=w39;
+        w[17]=w44;
+        w[18]=w43;
+        w[19]=w38;
+        w[20]=w37;
+        w[21]=w42;
+        w[22]=w41;
+        w[23]=w17;
         
+        g= new Gleisstueck[29];
+        g[0]=g0;
+        g[1]=g1;
+        g[2]=g2;
+        g[3]=g3;
+        g[4]=g4;
+        g[5]=g5;
+        g[6]=g6;
+        g[7]=g7;
+        g[8]=g8;
+        g[9]=g9;
+        g[10]=g10;
+        g[11]=g11;
+        g[12]=g12;
+        g[13]=g13;
+        g[14]=g14;
+        g[15]=g15;
+        g[16]=g16;
+        g[17]=g17;
+        g[18]=g18;
+        g[19]=g19;
+        g[20]=g20;
+        g[21]=g21;
+        g[22]=g22;
+        g[23]=g23;
+        g[24]=g24;
+        g[25]=g25;
+        g[26]=g26;
+        g[27]=g27;
+        g[28]=g28;
+       
+   
         
+    }
+    
+    public Weiche getWeiche(int nummer)
+    {
+        return w[nummer];
+    }
+    
+    public Signal getSignal(int nummer)
+    {
+        return s[nummer];
+    }
+    
+    public Gleisstueck getGleisstueck(int nummer)
+    {
+        return g[nummer];
     }
 }
