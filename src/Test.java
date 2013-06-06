@@ -1,3 +1,9 @@
+/**
+ * Testen des Projektes ESTW
+ * 
+ * @author (Furkan G., Paul B., Johannes W.) 
+ * @version (06.06.2013)
+ */
 public class Test{
     private Steuerung st;
     private Datenmodell d;
@@ -43,7 +49,7 @@ public class Test{
 
     /**
      *Lindau --> Proedel (Fahrstrecke)
-    Ziel: Versuch,jede Weiche und jedes Signal zu verstellen. 
+     *Ziel: Versuch,jede Weiche und jedes Signal zu verstellen. 
      */
     public void test4(){
         Zug zug0 = st.zugErstellen(17, 12, "Zug 0");
