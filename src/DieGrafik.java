@@ -16,7 +16,7 @@ class DieGrafik
     private static ArrayList<Zug> zuege = new ArrayList<Zug>();
     
     private static int[][] signale = new int[25][2];
-    private static int[][] weichen = new int[31][4];
+    private static int[][] weichen = new int[24][4];
     
     private static JFrame frame1;
     private static JRadioButton[] starts = new JRadioButton[4];
@@ -97,6 +97,21 @@ class DieGrafik
         signale[23][1] = 616;
         signale[24][0] = 1058;
         signale[24][1] = 506;
+        weichen[0][0] = 585;
+        weichen[0][1] = 517;
+        weichen[1][0] = 585;
+        weichen[1][1] = 517;
+        weichen[2][0] = 163;
+        weichen[2][1] = 961;
+        weichen[3][0] = 821;
+        weichen[3][1] = 450;
+        weichen[4][0] = 789;
+        weichen[4][1] = 469;
+        weichen[5][0] = 812;
+        weichen[5][1] = 517;
+        weichen[6][0] = 812;
+        weichen[6][1] = 517;        
+        
         los();
     }
     private static void los()
@@ -123,6 +138,7 @@ class DieGrafik
     {
         JOptionPane.showMessageDialog(frame,text,"",JOptionPane.INFORMATION_MESSAGE);
     }
+    
     
     private static class Zeichner extends JPanel
     {
@@ -154,7 +170,7 @@ class DieGrafik
                 g2d.fillOval(signale[i][0],signale[i][1],8,8);
             }
             g2d.setPaint(Color.white);
-            for(int i = 0; i < 31; i++)
+            for(int i = 0; i < 24; i++)
             {
                 if(datenmodell.w[i].getStellung())
                     g2d.drawPolygon(new int[] {weichen[i][0],weichen[i][0]+18,weichen[i][0]+18,weichen[i][0]},
@@ -233,6 +249,11 @@ class DieGrafik
                 JButton minusButton = new JButton("auf minus stellen");
                 panel.add(plusButton);
                 panel.add(minusButton);
+                UmstellListener u = new UmstellListener();
+                rotButton.addActionListener(u);
+                gruenButton.addActionListener(u);
+                plusButton.addActionListener(u);
+                minusButton.addActionListener(u);
                 frame2.getContentPane().add(panel);
                 frame2.setBounds(50,50,400,400);
                 frame2.setVisible(true);
@@ -363,6 +384,7 @@ class DieGrafik
             {
                 datenmodell.s[signalBox.getSelectedIndex()].setStellung(false);
             }
+            update();
         }
     }
 }
