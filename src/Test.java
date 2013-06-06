@@ -2,6 +2,8 @@ public class Test{
     private Steuerung st;
     private Datenmodell d;
     private DieGrafik g;
+    private Zug [] Zug;
+   
 
     /**
      *Barby --> Zerbst; zeitgleich Proedel --> Barby
@@ -83,4 +85,23 @@ public class Test{
         st.fahren();
     }
 
+    /**
+     * 2 Züge an der selben stelle erzeugen
+     */
+    public void test8()
+    {
+        Zug zug1 = st.zugErstellen(12,13,"Zug1");
+        Zug zug2 = st.zugErstellen(12,13,"Zug2");
+        st.fahren();
+    }
+
+    /**
+     * I like trains...
+     */
+    public void test9(){
+        Zug = new Zug[199];
+        for(int i = 0;i==200;i++){
+            Zug[i]=st.zugErstellen(12,13,""+i);
+        }
+    }
 }
