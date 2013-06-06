@@ -7,22 +7,23 @@
  */
 public class Zug
 {
-    private int position,start,ziel;
+    private int start,ziel;
     private String name;
     private List weg;
     private Datenmodell datenmodell;
+    private Gleisstueck position;
     
     /**
      * Erstellt einen Zug
      */
     public Zug(int s, int z, String n,Datenmodell d)
     {
-        position = s;
         start = s;
         ziel = z;
         name = n;
         weg = null;
         datenmodell = d;
+        position= (Gleisstueck)weg.head();
     }
     
     // -------------------------------------------Get-Methoden---------------------------------------------
@@ -32,7 +33,7 @@ public class Zug
      * 
      * @return     position
      */
-    public int getPosition()
+    public Gleisstueck getPosition()
     {
         return position;
     }
@@ -70,13 +71,13 @@ public class Zug
     //-------------------------------------------Set-Methoden---------------------------------------------
     
     /**
-     * setPosition: setzt Postion auf einen Parameter pneu
+     * fahrEinsWeiter: ändert Position auf nächstes Gleisstueck in der Wegliste
      * 
-     * @param  pneu  neue Postion
      */
-    public void setPosition(int pneu)
+    public void fahrEinsWeiter()
     {
-        position = pneu;
+        weg = weg.tail();
+        position = (Gleisstueck)weg.head();
     }
     
     /**
