@@ -10,35 +10,35 @@ public class Datenmodell
     public Datenmodell()
     {
         g0=new Gleisstueck("Gleisstueck 0", 0, w0, w0);
-        g1=new Gleisstueck("Gleisstueck 1", 1, w3, w5);
-        g2=new Gleisstueck("Gleisstueck 2", 1, w5, wvnB);
-        g3=new Gleisstueck("Gleisstueck 3", 1, w44, w6);
-        g4=new Gleisstueck("Gleisstueck 4", 1, w43, w6);
-        g5=new Gleisstueck("Gleisstueck 5", 1, wnZ, w1);
-        g6=new Gleisstueck("Gleisstueck 6", 1, w1, w7);
-        g7=new Gleisstueck("Gleisstueck 7", 1, w7, w11);
-        g8=new Gleisstueck("Gleisstueck 8", 1, w11, wvP);
-        g9=new Gleisstueck("Gleisstueck 9", 1, wvZ, w2);
-        g10=new Gleisstueck("Gleisstueck 10", 1, w2, w8);
-        g11=new Gleisstueck("Gleisstueck 11", 1, w8, w10);
-        g12=new Gleisstueck("Gleisstueck 12", 1, w12, wnP);
-        g13=new Gleisstueck("Gleisstueck 13", 1, wnL, w13);
-        g14=new Gleisstueck("Gleisstueck 14", 1, w13, w15);
-        g15=new Gleisstueck("Gleisstueck 15", 1, w15, w40);
-        g16=new Gleisstueck("Gleisstueck 16", 1, w40, w44);
-        g17=new Gleisstueck("Gleisstueck 17", 1, wvL, w14);
-        g18=new Gleisstueck("Gleisstueck 18", 1, w14, w16);
-        g19=new Gleisstueck("Gleisstueck 19", 1, w16, w39);
-        g20=new Gleisstueck("Gleisstueck 20", 1, w39, w38);
-        g21=new Gleisstueck("Gleisstueck 21", 1, w38, w42);
-        g22=new Gleisstueck("Gleisstueck 22", 1, w42, w43);
-        g23=new Gleisstueck("Gleisstueck 23", 1, w17, w37);
-        g24=new Gleisstueck("Gleisstueck 24", 1, w37, w41);
-        g25=new Gleisstueck("Gleisstueck 25", 1, w41, w10);
-        g26=new Gleisstueck("Gleisstueck 26", 1, w10, w12);
-        g27=new Gleisstueck("Gleisstueck 27", 1, w1, w3);
-        g28=new Gleisstueck("Gleisstueck 28", 1, w6, w5);
-        g28=new Gleisstueck("Gleisstueck 29", 1, w16, w17);
+        g1=new Gleisstueck("Gleisstueck 1", 640, w3, w5);
+        g2=new Gleisstueck("Gleisstueck 2", 320, w5, wvnB);
+        g3=new Gleisstueck("Gleisstueck 3", 590, w44, w6);
+        g4=new Gleisstueck("Gleisstueck 4", 190, w43, w6);
+        g5=new Gleisstueck("Gleisstueck 5", 210, wnZ, w1);
+        g6=new Gleisstueck("Gleisstueck 6", 260, w1, w7);
+        g7=new Gleisstueck("Gleisstueck 7", 730, w7, w11);
+        g8=new Gleisstueck("Gleisstueck 8", 200, w11, wvP);
+        g9=new Gleisstueck("Gleisstueck 9", 190, wvZ, w2);
+        g10=new Gleisstueck("Gleisstueck 10", 570, w2, w8);
+        g11=new Gleisstueck("Gleisstueck 11", 700, w8, w10);
+        g12=new Gleisstueck("Gleisstueck 12", 220, w12, wnP);
+        g13=new Gleisstueck("Gleisstueck 13", 260, wnL, w13);
+        g14=new Gleisstueck("Gleisstueck 14", 60, w13, w15);
+        g15=new Gleisstueck("Gleisstueck 15", 690, w15, w40);
+        g16=new Gleisstueck("Gleisstueck 16", 330, w40, w44);
+        g17=new Gleisstueck("Gleisstueck 17", 250, wvL, w14);
+        g18=new Gleisstueck("Gleisstueck 18", 80, w14, w16);
+        g19=new Gleisstueck("Gleisstueck 19", 690, w16, w39);
+        g20=new Gleisstueck("Gleisstueck 20", 60, w39, w38);
+        g21=new Gleisstueck("Gleisstueck 21", 51, w38, w42);
+        g22=new Gleisstueck("Gleisstueck 22", 50, w42, w43);
+        g23=new Gleisstueck("Gleisstueck 23", 690, w17, w37);
+        g24=new Gleisstueck("Gleisstueck 24", 120, w37, w41);
+        g25=new Gleisstueck("Gleisstueck 25", 1220, w41, w10);
+        g26=new Gleisstueck("Gleisstueck 26", 60, w10, w12);
+        g27=new Gleisstueck("Gleisstueck 27", 50, w1, w3);
+        g28=new Gleisstueck("Gleisstueck 28", 50, w6, w5);
+        g29=new Gleisstueck("Gleisstueck 29", 60, w16, w17);
        
 
         w0=new Weiche("Weiche 0",g0,g0,g0);
@@ -144,17 +144,18 @@ public class Datenmodell
         w[12]=w14;
         w[13]=w15;
         w[14]=w16;
-        w[15]=w40;
-        w[16]=w39;
-        w[17]=w44;
-        w[18]=w43;
-        w[19]=w38;
-        w[20]=w37;
+        w[15]=w17;
+        w[16]=w37;
+        w[17]=w38;
+        w[18]=w39;
+        w[19]=w40;
+        w[20]=w41;
         w[21]=w42;
-        w[22]=w41;
-        w[23]=w17;
+        w[22]=w43;
+        w[23]=w44;
+       
         
-        g= new Gleisstueck[29];
+        g= new Gleisstueck[30];
         g[0]=g0;
         g[1]=g1;
         g[2]=g2;
@@ -184,6 +185,7 @@ public class Datenmodell
         g[26]=g26;
         g[27]=g27;
         g[28]=g28;
+        g[29]=g29;
        
    
         
