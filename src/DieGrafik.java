@@ -351,6 +351,18 @@ class DieGrafik
             {
                 datenmodell.s[signalBox.getSelectedIndex()].setStellung(true);
             }
+            else if((((JButton)a.getSource()).getText().equals("auf grün stellen")))
+            {
+                datenmodell.s[signalBox.getSelectedIndex()].setStellung(false);
+            }
+            else if((((JButton)a.getSource()).getText().equals("auf plus stellen")))
+            {
+                datenmodell.s[signalBox.getSelectedIndex()].setStellung(true);
+            }
+            else if((((JButton)a.getSource()).getText().equals("auf minus stellen")))
+            {
+                datenmodell.s[signalBox.getSelectedIndex()].setStellung(false);
+            }
         }
     }
 }
