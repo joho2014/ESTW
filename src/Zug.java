@@ -89,6 +89,7 @@ public class Zug
      * @return      Weg
      */
     /*
+    /*
     public List wegErstellen(int st, int zi)
     //Bahnhof -> int:
     //Lindau : 1
@@ -96,40 +97,61 @@ public class Zug
     //Barby : 3
     //Prödel : 4
     {
-        // DAS DARF NICHT ADD() SONDERN APPEND() HEIßEN !!    (wird in kürze geändert)
+        
         
         //Lindau - Zerbst:
-        List listLZ = new List(datenmodell.getWeiche(17));
-        Node node = list.getHead();
-        listLZ.add(getWeiche(18)); listLZ.add(getWeiche(29)); listLZ.add(getWeiche(19)); listLZ.add(getWeiche(20)); listLZ.add(getWeiche(24)); listLZ.add(getWeiche(25)); listLZ.add(getWeiche(26)); listLZ.add(getWeiche(7)); listLZ.add(getWeiche(6)); listLZ.add(getWeiche(27)); listLZ.add(getWeiche(5));
+        List listLZ = new List();
+        listLZ.append(null); listLZ.append(getGleisstueck(17)); listLZ.append(getGleisstueck(18)); listLZ.append(getGleisstueck(29)); listLZ.append(getGleisstueck(19)); listLZ.append(getGleisstueck(20)); listLZ.append(getGleisstueck(24)); listLZ.append(getGleisstueck(25)); listLZ.append(getGleisstueck(26)); listLZ.append(getGleisstueck(7)); listLZ.append(getGleisstueck(6)); listLZ.append(getGleisstueck(27)); listLZ.append(getGleisstueck(5));
         
         //Lindau - Barby:
-        List listLB = new List(datenmodell.getWeiche(17));
-        Node node = list.getHead();
-        listLB.add(getWeiche(18)); listLB.add(getWeiche(29)); listLB.add(getWeiche(19)); listLB.add(getWeiche(20)); listLB.add(getWeiche(21)); listLB.add(getWeiche(22)); listLB.add(getWeiche(4)); listLB.add(getWeiche(28)); listLB.add(getWeiche(2));
+        List listLB = new List(null);
+        listLZ.append(null); listLB.append(getGleisstueck(17)); listLB.append(getGleisstueck(18)); listLB.append(getGleisstueck(29)); listLB.append(getGleisstueck(19)); listLB.append(getGleisstueck(20)); listLB.append(getGleisstueck(21)); listLB.append(getGleisstueck(22)); listLB.append(getGleisstueck(4)); listLB.append(getGleisstueck(28)); listLB.append(getGleisstueck(2));
         
         //Lindau - Prödel:
-        List listLP = new List(datenmodell.getWeiche(17));
-        Node node = list.getHead();
-        listLP.add(getWeiche(18)); listLP.add(getWeiche(29)); listLP.add(getWeiche(23)); listLP.add(getWeiche(24)); listLP.add(getWeiche(25)); listLP.add(getWeiche(26)); listLP.add(getWeiche(12)); 
+        List listLP = new List();
+        listLZ.append(null); listLB.append(getGleisstueck(17)); listLP.append(getGleisstueck(18)); listLP.append(getGleisstueck(29)); listLP.append(getGleisstueck(23)); listLP.append(getGleisstueck(24)); listLP.append(getGleisstueck(25)); listLP.append(getGleisstueck(26)); listLP.append(getGleisstueck(12)); 
         
         //Zerbst - Barby:
-        List listZB = new List(datenmodell.getWeiche(9));
-        Node node = list.getHead();
-        listZB.add(getWeiche(27)); listZB.add(getWeiche(1)); listZB.add(getWeiche(2));
+        List listZB = new List();
+        listLZ.append(null); listLB.append(getGleisstueck(9)); listZB.append(getGleisstueck(27)); listZB.append(getGleisstueck(1)); listZB.append(getGleisstueck(2));
         
         //Zerbst - Prödel:
-        List listZP = new List(datenmodell.getWeiche(9));
-        Node node = list.getHead();
-        listZP.add(getWeiche(10)); listZP.add(getWeiche(11)); listZP.add(getWeiche(26)); listZP.add(getWeiche(12));
+        List listZP = new List(datenmodell.getGleisstueck(9));
+        listLZ.append(null); listZP.append(getGleisstueck(10)); listZP.append(getGleisstueck(11)); listZP.append(getGleisstueck(26)); listZP.append(getGleisstueck(12));
         
         //Prödel - Barby:
-        List listPB = new List(datenmodell.getWeiche(8));
-        Node node = list.getHead();
-        listPB.add(getWeiche(7)); listPB.add(getWeiche(6)); listPB.add(getWeiche(27)); listPB.add(getWeiche(1)); listPB.add(getWeiche(2));
-       
+        List listPB = new List(datenmodell.getGleisstueck(8));
+        listPB.append(getGleisstueck(7)); listPB.append(getGleisstueck(6)); listPB.append(getGleisstueck(27)); listPB.append(getGleisstueck(1)); listPB.append(getGleisstueck(2));
+     
+	//Zerbst - Lindau:
+	List listZL = new List(datenmodell.getGleisstueck(9));
+	listLZ.append(null); listZL.append(getGleisstueck(27)); listZL.append(getGleisstueck(1)); listZL.append(getGleisstueck(28)); listZL.append(getGleisstueck(3)); listZL.append(getGleisstueck(16)); listZL.append(getGleisstueck(15)); listZL.append(getGleisstueck(14)); listZL.append(getGleisstueck(13)); 
+
+	//Barby - Lindau:
+	List listBL = new List(datenmodell.getGleisstueck(2));
+	listLZ.append(null); listBL.append(getGleisstueck(3)); listZL.append(getGleisstueck(16)); listZL.append(getGleisstueck(15)); listZL.append(getGleisstueck(14)); listZL.append(getGleisstueck(13)); 
+
+	//Prödel - Lindau:
+	List listPL = new List(datenmodell.getGleisstueck(8));
+	listLZ.append(null); listPL.append(getGleisstueck(7)); listZL.append(getGleisstueck(6)); listZL.append(getGleisstueck(1)); listZL.append(getGleisstueck(28)); listZL.append(getGleisstueck(3)); listZL.append(getGleisstueck(16)); listZL.append(getGleisstueck(15)); listZL.append(getGleisstueck(14)); listZL.append(getGleisstueck(13)); 
+
+	//Barby - Zerbst:
+	List listBZ = new List(datenmodell.getGleisstueck(2));
+	listLZ.append(null); listBZ.append(getGleisstueck(28)); listZL.append(getGleisstueck(3)); listZL.append(getGleisstueck(22)); listZL.append(getGleisstueck(25)); listZL.append(getGleisstueck(26)); listZL.append(getGleisstueck(7)); listZL.append(getGleisstueck(6)); listZL.append(getGleisstueck(27)); listZL.append(getGleisstueck(5)); 
+
+	//Prödel - Zerbst:
+	List listZP = new List(datenmodell.getGleisstueck(8));
+	listLZ.append(null); listBZ.append(getGleisstueck(7)); listZL.append(getGleisstueck(27)); listZL.append(getGleisstueck(5)); 
+
+	//Barby - Prödel:
+	List listBP = new List(datenmodell.getGleisstueck(2));
+	listLZ.append(null); listBP.append(getGleisstueck(28)); listZL.append(getGleisstueck(3); listZL.append(getGleisstueck(22)); listZL.append(getGleisstueck(25)); listZL.append(getGleisstueck(26)); listZL.append(getGleisstueck(12)); 
+
+
         
         return null;
+    }
+    
     }
     */
     
