@@ -87,6 +87,7 @@ public class Zug
      *        
      * @return      Weg
      */
+    /*
     public List wegErstellen(int st, int zi)
     //Bahnhof -> int:
     //Lindau : 1
@@ -129,5 +130,6 @@ public class Zug
         
         return null;
     }
+    */
     
 }

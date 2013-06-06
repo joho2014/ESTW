@@ -40,7 +40,7 @@ public class Steuerung
 	 */
 	public Zug zugErstellen(int start, int ziel, String name)
 	{
-		return new Zug(start,ziel,name);
+		return new Zug(start,ziel,name, datenmodell);
 	}
 	
 	/**

@@ -46,11 +46,11 @@ public class Test{
 	public void test4(){
 		Zug zug0 = st.zugErstellen(17, 12, "Zug 0");
 		st.blockFahren();
-		d.s21.setStellung(true);
-		d.w17.setStellung(false);
+		//d.s21.setStellung(true);
+		//d.w17.setStellung(false);
 		st.blockFahren();
-		d.s18.setStellung(true);
-		d.w39.setStellung(false);
+		//d.s18.setStellung(true);
+		//d.w39.setStellung(false);
 		st.blockFahren();
 		st.fahren();
 	}
