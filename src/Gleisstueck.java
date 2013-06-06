@@ -4,8 +4,8 @@ public class Gleisstueck
     private boolean belegt;/**true= belegt; false= nicht belegt*/
     private boolean gesperrt;/**true= gesperrt; false= nicht gesperrt*/
     private double laenge;
-    private Weiche anfang;/**Weiche bei nach der das Gleisstueck beginnt*/
-    private Weiche ende;/**Weiche vor der das Gleisstueck*/
+    private Weiche anfang;
+    private Weiche ende;
     
     /** Datenmodell:
      * Konstruktor Gleisstueck

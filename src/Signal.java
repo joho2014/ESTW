@@ -1,7 +1,7 @@
 public class Signal
 {
-    private boolean stellung;/**true= +/rot; false= -/gruen*/
-    private boolean gesperrt;/**true= Stellung kann nicht veraendert werden; false= Stellung kann veraendert werden*/
+    private boolean stellung;
+    private boolean gesperrt;
     private String bezeichnung;
     
     /** Datenmodell:

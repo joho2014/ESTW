@@ -1,11 +1,11 @@
 public class Weiche
 {
-    private boolean stellung; /**true= +/waagerecht; false= -/schraeg*/
-    private Gleisstueck naechsterP;/**naechstes Gleisstueck in Plusstellung*/
-    private Gleisstueck naechsterM;/**naechstes Gleisstueck in Minusstellung*/
-    private Gleisstueck anfang;/**Eingangsgleis der Weiche*/
+    private boolean stellung;
+    private Gleisstueck naechsterP;
+    private Gleisstueck naechsterM;
+    private Gleisstueck anfang;
     private String bezeichnung;
-    private boolean gesperrt;/**true= Stellung kann nicht veraendert werden; false= Stellung kann veraendert werden*/
+    private boolean gesperrt;
     
     /** Datenmodell:
      * Konstruktor Weiche 
