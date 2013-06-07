@@ -21,7 +21,7 @@ public class Test{
         st.blockFahren();
         st.blockFahren();
         Zug zug2 = st.zugErstellen(2, 5, "Zug 2");
-        g.textAusgeben("Position Zug1: "+Integer.toString(zug1.getPosition())+"\n"+"Position Zug2: "+Integer.   toString(zug2.getPosition()));
+        g.textAusgeben("Position Zug1: "+zug1.getPosition()+"\n"+"Position Zug2: "+zug2.getPosition());
         st.fahren();
     }
 
