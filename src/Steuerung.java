@@ -6,53 +6,52 @@
  */
 public class Steuerung
 {
-    
-    private List zuglist;
-    private DieGrafik anzeige;
-    private Datenmodell datenmodell;
+	
+	private List trains;
+	private DieGrafik anzeige;
+	private Datenmodell datenmodell;
 
-    /**
-     * Constructor for objects of class Steuerung
-     */
-    public Steuerung()
-    {
-        datenmodell = new Datenmodell();
-        anzeige = new DieGrafik(datenmodell,this);
-    }
+	/**
+	 * Constructor for objects of class Steuerung
+	 */
+	public Steuerung(){
+		trains = new List();
+		datenmodell = new Datenmodell();
+		anzeige = new DieGrafik(datenmodell,this);
+	}
 
 
-    /**
-     * Jeder Zug wird auf den nächsten Gleisabschnitt bewegt, falls möglich
-     *
-     */
-    public void blockFahren()   
-    {
-        Node x = zuglist.getHead();
-        while (x != null){
-            //x.getDatum().fahrEinsWeiter();
-            x=x.next();
-          }
-          
-    }
-    
-    /**
-     * Erstellt einen Zug
-     * 
-     * @param   start       Legt den Startbahnhof fest
-     *          ziel        Legt den Zielbahnhof fest
-     *          name        Legt den Namen des Zuges fest
-     * @return     Einen Zug
-     */
-    public Zug zugErstellen(int start, int ziel, String name)
-    {
-        return new Zug(start,ziel,name, datenmodell);
-    }
-    
-    /**
-     * Züge fahren komplette Strecke
-     */
-    public void fahren()
-    {
-        
-    }
+	/**
+	 * Jeder Zug wird auf den nächsten Gleisabschnitt bewegt, falls möglich
+	 *
+	 */
+	public void blockFahren(){
+		Node node = trains.getHead();
+		while(node != null){
+			Zug t = (Zug)node.getDatum();
+			if (t.nextTrack()) trains.delete(t);
+			node = node.next();
+		}
+		anzeige.update();
+		System.out.println(trains);
+	}
+	
+	/**
+	 * Erstellt einen Zug
+	 * 
+	 * @param   start       Legt den Startbahnhof fest
+	 *          ziel        Legt den Zielbahnhof fest
+	 *          name        Legt den Namen des Zuges fest
+	 * @return     Einen Zug
+	 */
+	public Zug zugErstellen(int start, int ziel, String name){
+		Zug n = new Zug(start,ziel,name, datenmodell);
+		trains.append(n);
+		return n;
+	}
+	
+	/**
+	 * Realtime
+	 */
+	public void fahren(){}
 }

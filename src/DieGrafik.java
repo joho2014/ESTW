@@ -259,6 +259,10 @@ class DieGrafik
                 frame2.setVisible(true);
                 frame2.pack();
             }
+            else if(k.getKeyCode() == KeyEvent.VK_B)
+            {
+                steuerung.blockFahren();
+            }
         }
         
         public void keyReleased(KeyEvent k)

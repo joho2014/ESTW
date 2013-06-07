@@ -130,4 +130,16 @@ public class Gleisstueck
     {
         return anfang;
     }
+
+    public void sperren(){
+        setGesperrt(true);
+    }
+
+    public void entsperren(){
+        setGesperrt(false);
+    }
+
+    public String toString(){
+        return bezeichnung;
+    }
 }
