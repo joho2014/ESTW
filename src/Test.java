@@ -107,7 +107,8 @@ public class Test{
     public void test9(){
         Zug = new Zug[199];
         for(int i = 0;i==200;i++){
-            Zug[i]=st.zugErstellen(12,13,""+i);
+            Zug[i]=st.zugErstellen(12,13,"zug"+i);
         }
+        st.fahren();
     }
 }
