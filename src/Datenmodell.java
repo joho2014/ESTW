@@ -7,6 +7,9 @@ public class Datenmodell
     public Weiche[]w;
     public Gleisstueck[]g;
     
+    /** Datenmodell:
+     * Konstruktor Datenmodell
+     */
     public Datenmodell()
     {
         g0=new Gleisstueck("Gleisstueck 0", 0, w0, w0);
@@ -191,19 +194,28 @@ public class Datenmodell
         
     }
     
-    /**
-     * Man erhält die Weiche mit der Arraynummer 'nummer'.
+    /** Datenmodell:
+     * Man erhaelt die Weiche mit der Arraynummer 'nummer'.
+     * @param nummer Arraynummer
      */
     public Weiche getWeiche(int nummer)
     {
         return w[nummer];
     }
     
+    /** Datenmodell:
+     * Man erhaelt das Signal mit der Arraynummer 'nummer'.
+     * @param nummer Arraynummer
+     */
     public Signal getSignal(int nummer)
     {
         return s[nummer];
     }
     
+    /** Datenmodell:
+     * Man erhaelt das Gleisstueck mit der Arraynummer 'nummer'.
+     * @param nummer Arraynummer
+     */
     public Gleisstueck getGleisstueck(int nummer)
     {
         return g[nummer];
