@@ -6,7 +6,6 @@ import java.awt.event.*;
 import javax.swing.event.*;
 
 
-
 class DieGrafik 
 {
     private static JFrame frame = new JFrame("Bahnhof Güterglück");
@@ -16,7 +15,7 @@ class DieGrafik
     private static ArrayList<Zug> zuege = new ArrayList<Zug>();
     
     private static int[][] signale = new int[25][2];
-    private static int[][] weichen = new int[24][4];
+    private static int[][] weichen = new int[24][6];
     
     private static JFrame frame1;
     private static JRadioButton[] starts = new JRadioButton[4];
@@ -97,21 +96,13 @@ class DieGrafik
         signale[23][1] = 616;
         signale[24][0] = 1058;
         signale[24][1] = 506;
-        weichen[0][0] = 585;
-        weichen[0][1] = 517;
-        weichen[1][0] = 585;
-        weichen[1][1] = 517;
-        weichen[2][0] = 163;
-        weichen[2][1] = 961;
-        weichen[3][0] = 821;
-        weichen[3][1] = 450;
-        weichen[4][0] = 789;
-        weichen[4][1] = 469;
-        weichen[5][0] = 812;
-        weichen[5][1] = 517;
-        weichen[6][0] = 812;
-        weichen[6][1] = 517;        
         
+        weichen[0][0] = 580;
+        weichen[0][1] = 480;
+        weichen[0][2] = 560;
+        weichen[0][3] = 480;
+        weichen[0][4] = 570;
+        weichen[0][5] = 495;
         los();
     }
     private static void los()
@@ -160,7 +151,7 @@ class DieGrafik
             g2d.drawPolygon(new int[] {99,328,328,99},new int[] {121,121,99,99},4);
             g2d.setPaint(Color.black);
             g2d.drawString("Enter: Zug erstellen",105,115);
-            g2d.drawString("Plus: Weichen & Signale verändern",105,135);
+            g2d.drawString("Leertaste: Weichen & Signale verändern",105,135);
             for(int i = 0; i < 25; i++)
             {
                 if(datenmodell.s[i].getStellung())
@@ -169,15 +160,17 @@ class DieGrafik
                     g2d.setPaint(Color.green);
                 g2d.fillOval(signale[i][0],signale[i][1],8,8);
             }
-            g2d.setPaint(Color.white);
+            g2d.setPaint(Color.black);
             for(int i = 0; i < 24; i++)
             {
                 if(datenmodell.w[i].getStellung())
-                    g2d.drawPolygon(new int[] {weichen[i][0],weichen[i][0]+18,weichen[i][0]+18,weichen[i][0]},
-                                    new int[] {weichen[i][1],weichen[i][1],weichen[i][1]+18,weichen[i][1]+18},4);
+                {
+                    g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][2],weichen[i][3]);
+                }
                 else
-                    g2d.drawPolygon(new int[] {weichen[i][2],weichen[i][2]+10,weichen[i][2]+10,weichen[i][2]},
-                                    new int[] {weichen[i][3],weichen[i][3],weichen[i][3]+10,weichen[i][3]+10},4);
+                {
+                    g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][4],weichen[i][5]);
+                }
             }
         }
     }
@@ -233,7 +226,7 @@ class DieGrafik
             {
                 System.exit(0);
             }
-            else if(k.getKeyCode() == KeyEvent.VK_PLUS)
+            else if(k.getKeyCode() == KeyEvent.VK_SPACE)
             {
                 JFrame frame2 = new JFrame("Signale & Weichen verändern");
                 JPanel panel = new JPanel(new GridLayout(2,3));
@@ -382,11 +375,11 @@ class DieGrafik
             }
             else if((((JButton)a.getSource()).getText().equals("auf plus stellen")))
             {
-                datenmodell.s[signalBox.getSelectedIndex()].setStellung(true);
+                datenmodell.w[weichenBox.getSelectedIndex()].setStellung(true);
             }
             else if((((JButton)a.getSource()).getText().equals("auf minus stellen")))
             {
-                datenmodell.s[signalBox.getSelectedIndex()].setStellung(false);
+                datenmodell.w[weichenBox.getSelectedIndex()].setStellung(false);
             }
             update();
         }
