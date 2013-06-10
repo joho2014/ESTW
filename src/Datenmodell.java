@@ -129,43 +129,29 @@ public class Datenmodell
         s[24]=s31;
         
         w= new Weiche[24];
-        w[0]=w0;
-        w[1]=w1;
-        w[2]=w2;
-        w[3]=w3;
-        w[4]=w5;
-        w[5]=w6;
-        w[6]=w7;
-        w[7]=w8; 
-        w[8]=w10;
-        w[9]=w11;
-        w[10]=w12;
-        w[11]=w13;
-        w[12]=w14;
-        w[13]=w15;
-        w[14]=w16;
-
-        w[15]=w40;
-        w[16]=w39;
-        w[17]=w44;
-        w[18]=w43;
-        w[19]=w38;
-        w[20]=w37;
-        w[21]=w42;
-        w[22]=w41;
-        w[23]=w17;
-        
-        g= new Gleisstueck[29];
-        
-        w[15]=w17;
-        w[16]=w37;
-        w[17]=w38;
-        w[18]=w39;
-        w[19]=w40;
-        w[20]=w41;
-        w[21]=w42;
-        w[22]=w43;
-        w[23]=w44;
+        w[0]=w1;
+        w[1]=w2;
+        w[2]=w3;
+        w[3]=w5;
+        w[4]=w6;
+        w[5]=w7;
+        w[6]=w8; 
+        w[7]=w10;
+        w[8]=w11;
+        w[9]=w12;
+        w[10]=w13;
+        w[11]=w14;
+        w[12]=w15;
+        w[13]=w16;
+        w[14]=w17;
+        w[15]=w37;
+        w[16]=w38;
+        w[17]=w39;
+        w[18]=w40;
+        w[19]=w41;
+        w[20]=w42;
+        w[21]=w43;
+        w[22]=w44;
        
         
         g= new Gleisstueck[30];
@@ -198,7 +184,6 @@ public class Datenmodell
         g[26]=g26;
         g[27]=g27;
         g[28]=g28;
-
         g[29]=g29;
 
        
@@ -206,7 +191,9 @@ public class Datenmodell
         
     }
     
-    
+    /**
+     * Man erhält die Weiche mit der Arraynummer 'nummer'.
+     */
     public Weiche getWeiche(int nummer)
     {
         return w[nummer];
