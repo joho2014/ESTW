@@ -144,7 +144,7 @@ public class Datenmodell
         w[12]=w14;
         w[13]=w15;
         w[14]=w16;
-<<<<<<< HEAD
+
         w[15]=w40;
         w[16]=w39;
         w[17]=w44;
@@ -156,7 +156,7 @@ public class Datenmodell
         w[23]=w17;
         
         g= new Gleisstueck[29];
-=======
+        
         w[15]=w17;
         w[16]=w37;
         w[17]=w38;
@@ -169,7 +169,6 @@ public class Datenmodell
        
         
         g= new Gleisstueck[30];
->>>>>>> 5ae393dad9a4bba352d32d5071d8ebac59209e09
         g[0]=g0;
         g[1]=g1;
         g[2]=g2;
@@ -199,14 +198,14 @@ public class Datenmodell
         g[26]=g26;
         g[27]=g27;
         g[28]=g28;
-<<<<<<< HEAD
-=======
+
         g[29]=g29;
->>>>>>> 5ae393dad9a4bba352d32d5071d8ebac59209e09
+
        
    
         
     }
+    
     
     public Weiche getWeiche(int nummer)
     {
