@@ -5,9 +5,9 @@
  * @version (06.06.2013)
  */
 public class Test{
-    private Steuerung st;
-    private Datenmodell d;
-    private DieGrafik g;
+    private Steuerung st = new Steuerung(); 
+    private Datenmodell d = new Datenmodell();
+    private DieGrafik g = new DieGrafik(d,st);
     private Zug [] Zug;
    
 
