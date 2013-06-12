@@ -131,7 +131,7 @@ public class Datenmodell
         s[23]=s30;
         s[24]=s31;
         
-        w= new Weiche[24];
+        w= new Weiche[23];
         w[0]=w1;
         w[1]=w2;
         w[2]=w3;

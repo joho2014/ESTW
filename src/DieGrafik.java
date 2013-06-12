@@ -161,8 +161,9 @@ class DieGrafik
                 g2d.fillOval(signale[i][0],signale[i][1],8,8);
             }
             g2d.setPaint(Color.black);
-            for(int i = 0; i < 24; i++)
+            for(int i = 0; i < 23; i++)
             {
+                System.out.println("Durchgang "+i);
                 if(datenmodell.w[i].getStellung())
                 {
                     g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][2],weichen[i][3]);
