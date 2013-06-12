@@ -103,6 +103,34 @@ class DieGrafik
         weichen[0][3] = 480;
         weichen[0][4] = 570;
         weichen[0][5] = 495;
+        
+        weichen[1][0] = 570;
+        weichen[1][1] = 495;
+        weichen[1][2] = 590;
+        weichen[1][3] = 495;
+        weichen[1][4] = 580;
+        weichen[1][5] = 480;
+        
+        weichen[2][0] = 610;
+        weichen[2][1] = 480;
+        weichen[2][2] = 630;
+        weichen[2][3] = 480;
+        weichen[2][4] = 620;
+        weichen[2][5] = 460;
+        
+        weichen[3][0] = 820;
+        weichen[3][1] = 430;
+        weichen[3][2] = 800;
+        weichen[3][3] = 430;
+        weichen[3][4] = 810;
+        weichen[3][5] = 415;
+        
+        weichen[4][0] = 790;
+        weichen[4][1] = 430;
+        weichen[4][2] = 770;
+        weichen[4][3] = 430;
+        weichen[4][4] = 775;
+        weichen[4][5] = 450;
         los();
     }
     private static void los()
@@ -163,7 +191,6 @@ class DieGrafik
             g2d.setPaint(Color.black);
             for(int i = 0; i < 23; i++)
             {
-                System.out.println("Durchgang "+i);
                 if(datenmodell.w[i].getStellung())
                 {
                     g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][2],weichen[i][3]);
