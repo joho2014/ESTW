@@ -4,6 +4,7 @@ import java.io.File;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+import javax.sound.sampled.*;
 
 
 class DieGrafik 
@@ -27,6 +28,7 @@ class DieGrafik
     private static JComboBox weichenBox;
     private static int startnr = -1;
     private static int zielnr = -1;
+    private static String[] errorSnds;
     public DieGrafik(Datenmodell d, Steuerung s)
     {
         datenmodell = d;
@@ -131,6 +133,7 @@ class DieGrafik
         weichen[4][3] = 430;
         weichen[4][4] = 775;
         weichen[4][5] = 450;
+        errorSnds = new String[] {"Gottes Willa.wav"};
         los();
     }
     private static void los()
@@ -169,7 +172,8 @@ class DieGrafik
             if (new File("../img/" + pName).exists()) {
                 ii = new ImageIcon("../img/" + pName);
             }
-            else{
+            else
+            {
                 ii = new ImageIcon(getClass().getResource(pName));
             }
             ii.paintIcon(this, g2d, 0, 0);
@@ -343,13 +347,39 @@ class DieGrafik
                 }
                 else
                 {
+                    clipMachen(errorSnds[((int)(Math.random()*4))]).start();
                     fehlerAusgeben("Der Zug hat keinen Bezeichner!");
                 }
             }
             else
             {
+                clipMachen(errorSnds[((int)(Math.random()*4))]).start();
                 fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
             }
+        }
+        
+        private Clip clipMachen(String name)
+        {
+            Clip clip = null;
+            File file;
+            try
+            {
+                if (new File("../snd/" + name).exists()) {
+                    file = new File("../snd/" + name);
+                }
+                else
+                {
+                    file = new File(getClass().getResource(name)+"");
+                }
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(file);
+                clip = AudioSystem.getClip();
+                clip.open(audioIn);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            return clip;
         }
     }
     private static class AuswahlListener implements ItemListener
