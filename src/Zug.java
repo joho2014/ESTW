@@ -50,19 +50,16 @@ public class Zug
      * fahrEinsWeiter: ändert Position auf nächstes Gleisstueck in der Wegliste
      * Returns true if it has reached it's destination
      */
-    public Boolean nextTrack()
-    {   
-        //System.out.println((Gleisstueck)weg.tail().head());
-        
-        if(weg.tail().head() == null || !((Gleisstueck)weg.tail().head()).getGesperrt()){
-            if(position != null) position.entsperren();
+    public Boolean nextTrack(){   
+        if(weg.tail().head() == null || !((Gleisstueck)weg.tail().head()).gesperrt()){
+            if(position != null) position.entsperren(this);
             weg = weg.tail();
             if(weg.head() == null){
                 position = null;
                 return true;
             }
             position = (Gleisstueck)weg.head();
-            position.sperren();
+            position.sperren(this);
         }
         return false;
     }

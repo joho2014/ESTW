@@ -1,8 +1,8 @@
 public class Gleisstueck
 {
     private String bezeichnung;
-    private boolean belegt;/**true= belegt; false= nicht belegt*/
-    private boolean gesperrt;/**true= gesperrt; false= nicht gesperrt*/
+    private Zug current;
+    private Zug sperrer;
     private double laenge;
     private Weiche anfang;
     private Weiche ende;
@@ -16,8 +16,8 @@ public class Gleisstueck
      */
     public Gleisstueck(String b, double l, Weiche a, Weiche e) {
         bezeichnung = b;
-        belegt = false;
-        gesperrt = false;
+        current = null;
+        sperrer = null;
         laenge = l;
         anfang = a;
         ende = e;
@@ -41,40 +41,14 @@ public class Gleisstueck
         return bezeichnung;
     }
     
-    /** Datenmodell:
-     * Belegung wird gesetzt.
-     * @param x Belegung
-     */
-    public void setBelegt(boolean x)
-    {
-        belegt=x;
+    public boolean gesperrt(){
+        if(sperrer != null) return true;
+        else return false;
     }
-    
-    /** Datenmodell:
-     * Ausgabe der Belegung.
-     * @return boolean Belegung
-     */
-    public boolean getBelegt ()
-    {
-        return belegt;
-    }
-    
-    /** Datenmodell:
-     * Sperrung wird gesetzt.
-     * @param x Sperrung
-     */
-    public void setGesperrt(boolean x)
-    {
-        gesperrt=x;
-    }
-    
-    /** Datenmodell:
-     * Ausgabe der Sperrung.
-     * @return boolean Sperrung
-     */
-    public boolean getGesperrt()
-    {
-        return gesperrt;
+
+    public boolean belegt(){
+        if(current != null) return true;
+        else return false;
     }
     
     /** Datenmodell:
@@ -131,12 +105,37 @@ public class Gleisstueck
         return anfang;
     }
 
-    public void sperren(){
-        setGesperrt(true);
+    public boolean sperren(Zug z){
+        if(current == null && sperrer == null){
+            sperrer = z;
+            return true;
+        }
+        else return false;
     }
 
-    public void entsperren(){
-        setGesperrt(false);
+    public boolean entsperren(Zug z){
+        if(current == null && sperrer == z){
+            sperrer = null;
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean befahren(Zug z){
+        if(current == null && sperrer == z){
+            current = z;
+            return true;
+        }
+        else return false;
+
+    }
+
+    public boolean verlassen(Zug z){
+        if(current == z && sperrer == z){
+            current = null;
+            return true;
+        }
+        else return false;
     }
 
     public String toString(){

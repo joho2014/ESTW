@@ -29,7 +29,7 @@ public class Steuerung
 		Node node = trains.getHead();
 		while(node != null){
 			Zug t = (Zug)node.getDatum();
-			if (t.nextTrack()) trains.delete(t);
+			if (t.nextTrack()) cleanup(t);
 			node = node.next();
 		}
 		anzeige.update();
@@ -54,4 +54,8 @@ public class Steuerung
 	 * Realtime
 	 */
 	public void fahren(){}
+
+	public void cleanup(Zug z){
+		trains.delete(z);
+	}
 }
