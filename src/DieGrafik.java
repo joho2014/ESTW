@@ -29,6 +29,7 @@ class DieGrafik
     private static int startnr = -1;
     private static int zielnr = -1;
     private static String[] errorSnds;
+    private static ImageIcon fehlerBild;
     public DieGrafik(Datenmodell d, Steuerung s)
     {
         datenmodell = d;
@@ -153,7 +154,7 @@ class DieGrafik
     
     public static void fehlerAusgeben(String fehlerAusgabe)
     {
-        JOptionPane.showMessageDialog(frame,fehlerAusgabe,"Error",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(frame,fehlerAusgabe,"Error",JOptionPane.ERROR_MESSAGE,fehlerBild);
     }
     
     public static void textAusgeben(String text)
@@ -177,6 +178,14 @@ class DieGrafik
                 ii = new ImageIcon(getClass().getResource(pName));
             }
             ii.paintIcon(this, g2d, 0, 0);
+            pName = "gleich klatscht et.jpg";
+            if (new File("../img/" + pName).exists()) {
+                fehlerBild = new ImageIcon("../img/" + pName);
+            }
+            else
+            {
+                fehlerBild = new ImageIcon(getClass().getResource(pName));
+            }
             g2d.setPaint(Color.black);
             g2d.drawPolygon(new int[] {97,270,270,97},new int[] {123,123,97,97},4);
             g2d.setPaint(Color.white);
