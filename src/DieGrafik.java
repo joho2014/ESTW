@@ -356,13 +356,13 @@ class DieGrafik
                 }
                 else
                 {
-                    clipMachen(errorSnds[((int)(Math.random()*errorSnds.length))]).start();
+                    clipMachen(errorSnds[((int)(Math.random()*(errorSnds.length-1)))]).start();
                     fehlerAusgeben("Der Zug hat keinen Bezeichner!");
                 }
             }
             else
             {
-                clipMachen(errorSnds[((int)(Math.random()*errorSnds.length))]).start();
+                clipMachen(errorSnds[((int)(Math.random()*(errorSnds.length-1)))]).start();
                 fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
             }
         }
