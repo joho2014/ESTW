@@ -133,7 +133,7 @@ class DieGrafik
         weichen[4][3] = 430;
         weichen[4][4] = 775;
         weichen[4][5] = 450;
-        errorSnds = new String[] {"Gottes Willa.wav"};
+        errorSnds = new String[] {"Gottes Willa.wav", "wtfwarum.wav"};
         los();
     }
     private static void los()
@@ -347,13 +347,13 @@ class DieGrafik
                 }
                 else
                 {
-                    clipMachen(errorSnds[((int)(Math.random()*4))]).start();
+                    clipMachen(errorSnds[((int)(Math.random()*errorSnds.length))]).start();
                     fehlerAusgeben("Der Zug hat keinen Bezeichner!");
                 }
             }
             else
             {
-                clipMachen(errorSnds[((int)(Math.random()*4))]).start();
+                clipMachen(errorSnds[((int)(Math.random()*errorSnds.length))]).start();
                 fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
             }
         }
@@ -364,8 +364,8 @@ class DieGrafik
             File file;
             try
             {
-                if (new File("../snd/" + name).exists()) {
-                    file = new File("../snd/" + name);
+                if (new File("../sounds/" + name).exists()) {
+                    file = new File("../sounds/" + name);
                 }
                 else
                 {
