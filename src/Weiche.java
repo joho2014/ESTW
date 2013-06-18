@@ -5,7 +5,7 @@ public class Weiche
     private Gleisstueck naechsterM;
     private Gleisstueck anfang;
     private String bezeichnung;
-    private boolean gesperrt;
+    private Zug sperrer;
     
     /** Datenmodell:
      * Konstruktor Weiche 
@@ -20,24 +20,7 @@ public class Weiche
         naechsterM = nm;
         anfang = a;
         bezeichnung = b;
-    }
-    
-    /** Datenmodell:
-     * Stellung der Weiche wird gesetzt.
-     * @param s Weichenstellung
-     */
-    public void setStellung(boolean s)
-    {
-        stellung=s;
-    }
-    
-    /** Datenmodell:
-     * Ausgabe der Weichenstellung.
-     * @return boolean Weichenstellung
-     */
-    public boolean getStellung ()
-    {
-        return stellung;
+        sperrer = null;
     }
     
     /** Datenmodell:
@@ -46,7 +29,7 @@ public class Weiche
      */
     public void setNaechsterP(Gleisstueck g)
     {
-        naechsterP=g;
+       naechsterP = g;
     }
     
     /** Datenmodell:
@@ -82,7 +65,7 @@ public class Weiche
      */
     public void setAnfang(Gleisstueck g)
     {
-        anfang=g;
+        anfang = g;
     }
     
     /** Datenmodell:
@@ -100,7 +83,7 @@ public class Weiche
      */
     public void setBezeichnung(String b)
     {
-        bezeichnung=b;
+        bezeichnung = b;
     }
     /** Datenmodell:
      * Ausgabe der Bezeichnung.
@@ -111,26 +94,60 @@ public class Weiche
         return bezeichnung;
     }
     
-    /** Datenmodell:
-     * Die Weiche wird gesperrt/entsperrt.
-     * @param g Weiche sperren
-     */
-    public void setGesperrt(boolean g)
-    {
-        gesperrt=g;
-    }
-    
-    /** Datenmodell:
-     * Ausgabe der Sperrung.
-     * @return boolean Status
-     */
-    public boolean getGesperrt ()
-    {
-        return gesperrt;
-    }
-    
     public String toString()
     {
         return bezeichnung;
+    }
+
+    public boolean sperren(Zug z){
+        if(sperrer == null){
+            sperrer = z;
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean entsperren(Zug z){
+        if(sperrer == z){
+            sperrer = null;
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean stellen(Gleisstueck o, Gleisstueck d, Zug z){
+        if(((o == anfang && d == naechsterP)||(d == anfang && o == naechsterP)) && (sperrer == null || sperrer == z)){
+            stellung = true;
+            return true;
+        }
+        else if(sperrer == null || sperrer == z){
+            stellung = false;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean getStellung(){
+        return stellung;
+    }
+
+    public boolean setStellung(boolean b){
+        if (sperrer == null){
+            stellung = b;
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean befahrbar(Gleisstueck o, Gleisstueck d, Zug z){
+        if(z == sperrer){
+            if(stellung == true){
+                if ((o == anfang && d == naechsterP)||(d == anfang && o == naechsterP)) return true;
+            }
+            else{
+                if ((o == anfang && d == naechsterM)||(d == anfang && o == naechsterM)) return true;
+            }
+        }
+        return false;
     }
 }
