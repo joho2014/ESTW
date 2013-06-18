@@ -150,4 +150,9 @@ public class Weiche
         }
         return false;
     }
+
+    public boolean gesperrt(){
+        if(sperrer != null) return true;
+        else return false;
+    }
 }

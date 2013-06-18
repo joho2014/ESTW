@@ -3,51 +3,19 @@ public class Signal
     private boolean stellung;
     private boolean gesperrt;
     private String bezeichnung;
+    private Gleisstueck bezug;
+    private boolean ende;
     
     /** Datenmodell:
      * Konstruktor Signal
      * @param b Bezeichnung
      */
-    public Signal(String b) {
+    public Signal(String b, Gleisstueck bez, boolean e) {
         stellung = true;
         gesperrt = false;
         bezeichnung = b;
-    }
-    
-    /** Datenmodell:
-     * Die Stellung wird gesetzt.
-     * @param s Stellung
-     */
-    public void setStellung(boolean s)
-    {
-        stellung=s;
-    }
-    
-    /** Datenmodell:
-     * Ausgabe der Stellung.
-     * @return boolean Stellung
-     */
-    public boolean getStellung ()
-    {
-        return stellung;
-    }
-    
-    /** Datenmodell:
-     * Die Sperrung wird gesetzt.
-     * @param g Sperrung
-     */
-    public void setGesperrt(boolean g)
-    {
-        gesperrt=g;
-    }
-    
-    /** Datenmodell:
-     * Ausgabe der Sperrung.
-     * @return boolean Sperrung
-     */
-    public boolean getGesperrt ()
-    {
-        return gesperrt;
+        bezug = bez;
+        ende = e;
     }
     
     /** Datenmodell:
@@ -71,5 +39,27 @@ public class Signal
     public String toString()
     {
         return bezeichnung;
+    }
+
+    public void figureState(){
+        stellung = farbe();
+        gesperrt = bezug.gesperrt();
+    }
+
+    public boolean setStellung(boolean s){
+        if(gesperrt != true){
+            stellung = s;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean getStellung(){
+        return stellung;
+    }
+
+    //Yet to be implemented
+    public boolean farbe(){
+        return true;
     }
 }

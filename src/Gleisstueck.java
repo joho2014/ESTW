@@ -138,6 +138,10 @@ public class Gleisstueck
         else return false;
     }
 
+    public Zug getSperrer(){
+        return sperrer;
+    }
+
     public String toString(){
         return bezeichnung;
     }

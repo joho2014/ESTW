@@ -58,4 +58,12 @@ public class Steuerung
 	public void cleanup(Zug z){
 		trains.delete(z);
 	}
+
+	public void figureSignals(){
+		int i = 0;
+		while(datenmodell.getSignal(i) != null){
+			datenmodell.getSignal(i).figureState();
+			i++;
+		}
+	}
 }

@@ -77,31 +77,31 @@ public class Datenmodell
         w17=new Weiche("Weiche 17",g19,g23,g29);
 
 
-        s1=new Signal("Signal 1");
-        s2=new Signal("Signal 2");
-        s3=new Signal("Signal 3");
-        s4=new Signal("Signal 4");
-        s5=new Signal("Signal 5");
-        s6=new Signal("Signal 6");
-        s7=new Signal("Signal 7");
-        s8=new Signal("Signal 8");
-        s9=new Signal("Signal 9");
-        s10=new Signal("Signal 10");
-        s11=new Signal("Signal 11");
-        s12=new Signal("Signal 12");
-        s13=new Signal("Signal 13");
-        s14=new Signal("Signal 14");
-        s15=new Signal("Signal 15");
-        s16=new Signal("Signal 16");
-        s17=new Signal("Signal 17");
-        s18=new Signal("Signal 18");
-        s20=new Signal("Signal 20");
-        s21=new Signal("Signal 21");
-        s22=new Signal("Signal 22");
-        s25=new Signal("Signal 25");
-        s26=new Signal("Signal 26");
-        s30=new Signal("Signal 30");
-        s31=new Signal("Signal 31");
+        s1=new Signal("Signal 1", g0, true);
+        s2=new Signal("Signal 2", g0, true);
+        s3=new Signal("Signal 3", g0, true);
+        s4=new Signal("Signal 4", g0, true);
+        s5=new Signal("Signal 5", g0, true);
+        s6=new Signal("Signal 6", g0, true);
+        s7=new Signal("Signal 7", g0, true);
+        s8=new Signal("Signal 8", g0, true);
+        s9=new Signal("Signal 9", g0, true);
+        s10=new Signal("Signal 10", g0, true);
+        s11=new Signal("Signal 11", g0, true);
+        s12=new Signal("Signal 12", g0, true);
+        s13=new Signal("Signal 13", g0, true);
+        s14=new Signal("Signal 14", g0, true);
+        s15=new Signal("Signal 15", g0, true);
+        s16=new Signal("Signal 16", g0, true);
+        s17=new Signal("Signal 17", g0, true);
+        s18=new Signal("Signal 18", g0, true);
+        s20=new Signal("Signal 20", g0, true);
+        s21=new Signal("Signal 21", g0, true);
+        s22=new Signal("Signal 22", g0, true);
+        s25=new Signal("Signal 25", g0, true);
+        s26=new Signal("Signal 26", g0, true);
+        s30=new Signal("Signal 30", g0, true);
+        s31=new Signal("Signal 31", g0, true);
         
 
         s= new Signal[25];
@@ -200,7 +200,8 @@ public class Datenmodell
      */
     public Weiche getWeiche(int nummer)
     {
-        return w[nummer];
+        if(nummer < w.length) return w[nummer];
+        return null;
     }
     
     /** Datenmodell:
@@ -209,7 +210,8 @@ public class Datenmodell
      */
     public Signal getSignal(int nummer)
     {
-        return s[nummer];
+        if(nummer < s.length) return s[nummer];
+        return null;
     }
     
     /** Datenmodell:
@@ -218,6 +220,7 @@ public class Datenmodell
      */
     public Gleisstueck getGleisstueck(int nummer)
     {
-        return g[nummer];
+        if(nummer < g.length) return g[nummer];
+        return null;
     }
 }
