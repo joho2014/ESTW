@@ -134,7 +134,7 @@ class DieGrafik
         weichen[4][3] = 430;
         weichen[4][4] = 775;
         weichen[4][5] = 450;
-        errorSnds = new String[] {"Gottes Willa.wav", "wtfwarum.wav"};
+        errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav"};
         los();
     }
     private static void los()
@@ -370,17 +370,17 @@ class DieGrafik
         private Clip clipMachen(String name)
         {
             Clip clip = null;
-            File file;
+            File file = new File("../sounds/" + name);
+            AudioInputStream audioIn;
             try
             {
-                if (new File("../sounds/" + name).exists()) {
-                    file = new File("../sounds/" + name);
+                if (file.exists()) {
+                    audioIn = AudioSystem.getAudioInputStream(file);
                 }
                 else
                 {
-                    file = new File(getClass().getResource(name)+"");
+                    audioIn = AudioSystem.getAudioInputStream(getClass().getResource(name));
                 }
-                AudioInputStream audioIn = AudioSystem.getAudioInputStream(file);
                 clip = AudioSystem.getClip();
                 clip.open(audioIn);
             }

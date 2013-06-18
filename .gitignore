@@ -16,3 +16,4 @@ src/doc/*
 
 # Build Copies #
 src/*.jpg
+src/*.wav
