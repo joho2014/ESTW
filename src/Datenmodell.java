@@ -213,8 +213,8 @@ public class Datenmodell
     }
     
     /** Datenmodell:
-     * Man erhaelt die Weiche mit der Arraynummer 'nummer'.
-     * @param nummer Arraynummer
+     * Man erhaelt die Weiche mit dem Arrayindex 'nummer'.
+     * @param nummer Arrayindex
      */
     public Weiche getWeiche(int nummer)
     {
@@ -223,8 +223,8 @@ public class Datenmodell
     }
     
     /** Datenmodell:
-     * Man erhaelt das Signal mit der Arraynummer 'nummer'.
-     * @param nummer Arraynummer
+     * Man erhaelt das Signal mit dem Arrayindex 'nummer'.
+     * @param nummer Arrayindex
      */
     public Signal getSignal(int nummer)
     {
@@ -233,8 +233,8 @@ public class Datenmodell
     }
     
     /** Datenmodell:
-     * Man erhaelt das Gleisstueck mit der Arraynummer 'nummer'.
-     * @param nummer Arraynummer
+     * Man erhaelt das Gleisstueck mit dem Arrayindex 'nummer'.
+     * @param nummer Arrayindex
      */
     public Gleisstueck getGleisstueck(int nummer)
     {
