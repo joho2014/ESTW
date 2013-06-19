@@ -218,7 +218,7 @@ public class Datenmodell
      */
     public Weiche getWeiche(int nummer)
     {
-        if(nummer < w.length) return w[nummer];
+        if(nummer < w.length && nummer >= 0) return w[nummer];
         return null;
     }
     
@@ -228,7 +228,7 @@ public class Datenmodell
      */
     public Signal getSignal(int nummer)
     {
-        if(nummer < s.length) return s[nummer];
+        if(nummer < s.length && nummer >= 0) return s[nummer];
         return null;
     }
     
@@ -238,7 +238,7 @@ public class Datenmodell
      */
     public Gleisstueck getGleisstueck(int nummer)
     {
-        if(nummer < g.length) return g[nummer];
+        if(nummer < g.length && nummer >= 0) return g[nummer];
         return null;
     }
 }
