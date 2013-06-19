@@ -6,6 +6,7 @@ public class Gleisstueck
     private double laenge;
     private Weiche anfang;
     private Weiche ende;
+    private Signal signal;
     
     /** Datenmodell:
      * Konstruktor Gleisstueck
@@ -22,16 +23,13 @@ public class Gleisstueck
         anfang = a;
         ende = e;
     }
-    
-    /** Datenmodell:
-     * Bezeichnung wird gesetzt.
-     * @param b Bezeichnung
-     */
-    public void setBezeichnung(String b)
-    {
-        bezeichnung=b;
+
+
+
+    public void setSignal(Signal s){
+        signal = s;
     }
-    
+
     /** Datenmodell:
      * Ausgabe der Bezeichnung.
      * @return String Bezeichnung
@@ -50,15 +48,7 @@ public class Gleisstueck
         if(current != null) return true;
         else return false;
     }
-    
-    /** Datenmodell:
-     * Laenge wird gesetzt.
-     * @param l Laenge
-     */
-    public void setLaenge(double l)
-    {
-        laenge = l;
-    }
+
     
     /** Datenmodell:
      * Ausgabe der Laenge.
@@ -70,30 +60,12 @@ public class Gleisstueck
     }
     
     /** Datenmodell:
-     * Endweiche wird gesetzt.
-     * @param e Endweiche
-     */
-    public void setEnde(Weiche e)
-    {
-        ende=e;
-    }
-    
-    /** Datenmodell:
      * Ausgabe der Endweiche.
      * @return Weiche Endweiche
      */
     public Weiche getEnde ()
     {
         return ende;
-    }
-    
-    /** Datenmodell:
-     * Anfangsweiche wird gesetzt.
-     * @param e Anfangsweiche
-     */
-    public void setAnfang(Weiche a)
-    {
-        anfang=a;
     }
     
     /** Datenmodell:
