@@ -47,6 +47,8 @@ public class Steuerung
 	public Zug zugErstellen(int start, int ziel, String name){
 		Zug n = new Zug(start,ziel,name, datenmodell);
 		trains.append(n);
+		wiederSperren();
+		figureSignals();
 		return n;
 	}
 	
@@ -56,7 +58,10 @@ public class Steuerung
 	public void fahren(){}
 
 	public void cleanup(Zug z){
+		z.wegFreimachen();
 		trains.delete(z);
+		wiederSperren();
+		figureSignals();
 	}
 
 	public void figureSignals(){
@@ -64,6 +69,14 @@ public class Steuerung
 		while(datenmodell.getSignal(i) != null){
 			datenmodell.getSignal(i).figureState();
 			i++;
+		}
+	}
+
+	public void wiederSperren(){
+		Node node = trains.getHead();
+		while(node != null){
+			((Zug)node.getDatum()).reservieren();
+			node = node.next();
 		}
 	}
 }

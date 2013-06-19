@@ -155,4 +155,9 @@ public class Weiche
         if(sperrer != null) return true;
         else return false;
     }
+
+    public boolean erreichbar(Gleisstueck g){
+        if(g == anfang || g == naechsterP || g == naechsterM) return true;
+        return false;
+    }
 }

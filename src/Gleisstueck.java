@@ -110,8 +110,27 @@ public class Gleisstueck
         else return false;
     }
 
+    public boolean befahrbar(Zug z){
+        if(current == null && sperrer == z){
+            return true;
+        }
+        else return false;
+
+    }
+
     public Zug getSperrer(){
         return sperrer;
+    }
+
+    public Weiche nextW(Weiche w){
+        if(anfang == w) return ende;
+        else return anfang;
+    }
+
+    public Weiche verbindung(Gleisstueck g){
+        if(anfang.erreichbar(g)) return anfang;
+        else if(ende.erreichbar(g)) return ende;
+        return null;
     }
 
     public String toString(){

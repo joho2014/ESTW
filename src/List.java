@@ -102,6 +102,15 @@ class List{
 		return false;
 	}
 
+	public Node find(Object o){
+		Node next = head;
+		while(next != null){
+			if(next.getDatum() == o) return next;
+			next = next.next();
+		}
+		return null;
+	}
+
 	public void delete(Object o){
 		if(head.getDatum() == o) head = head.next();
 		if(length() > 0){
