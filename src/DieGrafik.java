@@ -314,12 +314,11 @@ class DieGrafik
                 fehlerBild = new ImageIcon(getClass().getResource(pName));
             }
             g2d.setPaint(Color.black);
-            g2d.drawPolygon(new int[] {97,270,270,97},new int[] {123,123,97,97},4);
-            g2d.setPaint(Color.white);
-            g2d.drawPolygon(new int[] {99,328,328,99},new int[] {121,121,99,99},4);
+            g2d.drawPolygon(new int[] {100,330,330,100},new int[] {100,100,165,165},4);
             g2d.setPaint(Color.black);
             g2d.drawString("Enter: Zug erstellen",105,115);
             g2d.drawString("Leertaste: Weichen & Signale verändern",105,135);
+            g2d.drawString("b: Blockfahren",105,155);
             for(int i = 0; i < 25; i++)
             {
                 if(datenmodell.s[i].getStellung())
@@ -334,11 +333,37 @@ class DieGrafik
                 if(datenmodell.w[i].getStellung())
                 {
                     g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][2],weichen[i][3]);
+                    g2d.drawLine(weichen[i][0],weichen[i][1]+1,weichen[i][2],weichen[i][3]+1);
+                    g2d.drawLine(weichen[i][0],weichen[i][1]-1,weichen[i][2],weichen[i][3]-1);
+                    g2d.drawLine(weichen[i][0],weichen[i][1]+2,weichen[i][2],weichen[i][3]+2);
+                    g2d.drawLine(weichen[i][0],weichen[i][1]-2,weichen[i][2],weichen[i][3]-2);
                 }
                 else
                 {
                     g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][4],weichen[i][5]);
+                    g2d.drawLine(weichen[i][0]+1,weichen[i][1],weichen[i][4]+1,weichen[i][5]);
+                    g2d.drawLine(weichen[i][0]-1,weichen[i][1],weichen[i][4]-1,weichen[i][5]);
+                    g2d.drawLine(weichen[i][0]+2,weichen[i][1],weichen[i][4]+2,weichen[i][5]);
+                    g2d.drawLine(weichen[i][0]-2,weichen[i][1],weichen[i][4]-2,weichen[i][5]);
                 }
+            }
+            zugMalen(g2d);
+        }
+        private void zugMalen(Graphics2D g2d)
+        {
+            String pName = "train.jpg";
+            ImageIcon ii;
+            if (new File("../img/" + pName).exists()) {
+                ii = new ImageIcon("../img/" + pName);
+            }
+            else
+            {
+                ii = new ImageIcon(getClass().getResource(pName));
+            }
+            for(int i = 0; i < 30; i++)
+            {
+                if(datenmodell.g[i].belegt())
+                ii.paintIcon(this, g2d, 0, 0);
             }
         }
     }
