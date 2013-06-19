@@ -134,6 +134,133 @@ class DieGrafik
         weichen[4][3] = 430;
         weichen[4][4] = 775;
         weichen[4][5] = 450;
+        
+        weichen[5][0] = 790;
+        weichen[5][1] = 480;
+        weichen[5][2] = 810;
+        weichen[5][3] = 480;
+        weichen[5][4] = 810;
+        weichen[5][5] = 495;
+        
+        weichen[6][0] = 810;
+        weichen[6][1] = 495;
+        weichen[6][2] = 790;
+        weichen[6][3] = 495;
+        weichen[6][4] = 790;
+        weichen[6][5] = 480;
+        
+        weichen[7][0] = 1070;
+        weichen[7][1] = 495;
+        weichen[7][2] = 1050;
+        weichen[7][3] = 495;
+        weichen[7][4] = 1050;
+        weichen[7][5] = 515;
+        
+        weichen[8][0] = 1100;
+        weichen[8][1] = 480;
+        weichen[8][2] = 1070;
+        weichen[8][3] = 480;
+        weichen[8][4] = 1090;
+        weichen[8][5] = 495;
+        
+        weichen[9][0] = 1090;
+        weichen[9][1] = 495;
+        weichen[9][2] = 1110;
+        weichen[9][3] = 495;
+        weichen[9][4] = 1090;
+        weichen[9][5] = 480;
+
+        weichen[10][0] = 210;
+        weichen[10][1] = 575;
+        weichen[10][2] = 190;
+        weichen[10][3] = 575;
+        weichen[10][4] = 200;
+        weichen[10][5] = 600;
+        
+        weichen[11][0] = 200;
+        weichen[11][1] = 595;
+        weichen[11][2] = 220;
+        weichen[11][3] = 595;
+        weichen[11][4] = 210;
+        weichen[11][5] = 580;
+        
+        weichen[12][0] = 225;
+        weichen[12][1] = 575;
+        weichen[12][2] = 245;
+        weichen[12][3] = 575;
+        weichen[12][4] = 250;
+        weichen[12][5] = 600;
+        
+        weichen[13][0] = 245;
+        weichen[13][1] = 595;
+        weichen[13][2] = 270;
+        weichen[13][3] = 595;
+        weichen[13][4] = 265;
+        weichen[13][5] = 580;
+        
+        weichen[14][0] = 270;
+        weichen[14][1] = 600;
+        weichen[14][2] = 285;
+        weichen[14][3] = 600;
+        weichen[14][4] = 275;
+        weichen[14][5] = 610;
+        
+        weichen[15][0] = 565;
+        weichen[15][1] = 610;
+        weichen[15][2] = 545;
+        weichen[15][3] = 610;
+        weichen[15][4] = 655;
+        weichen[15][5] = 600;
+        
+        weichen[16][0] = 550;
+        weichen[16][1] = 595;
+        weichen[16][2] = 575;
+        weichen[16][3] = 595;
+        weichen[16][4] = 565;
+        weichen[16][5] = 615;
+        
+        weichen[17][0] = 530;
+        weichen[17][1] = 595;
+        weichen[17][2] = 510;
+        weichen[17][3] = 595;
+        weichen[17][4] = 520;
+        weichen[17][5] = 580;
+        
+        weichen[18][0] = 515;
+        weichen[18][1] = 575;
+        weichen[18][2] = 535;
+        weichen[18][3] = 575;
+        weichen[18][4] = 530;
+        weichen[18][5] = 595;
+        
+        weichen[19][0] = 610;
+        weichen[19][1] = 615;
+        weichen[19][2] = 630;
+        weichen[19][3] = 615;
+        weichen[19][4] = 620;
+        weichen[19][5] = 600;
+        
+        weichen[20][0] = 620;
+        weichen[20][1] = 595;
+        weichen[20][2] = 600;
+        weichen[20][3] = 595;
+        weichen[20][4] = 610;
+        weichen[20][5] = 615;
+        
+        weichen[21][0] = 645;
+        weichen[21][1] = 595;
+        weichen[21][2] = 665;
+        weichen[21][3] = 595;
+        weichen[21][4] = 655;
+        weichen[21][5] = 580;
+        
+        weichen[22][0] = 660;
+        weichen[22][1] = 580;
+        weichen[22][2] = 640;
+        weichen[22][3] = 580;
+        weichen[22][4] = 650;
+        weichen[22][5] = 600;
+        
         errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav"};
         los();
     }
