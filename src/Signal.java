@@ -24,7 +24,7 @@ public class Signal
      */
     public void setBezeichnung(String b)
     {
-        bezeichnung=b;
+        bezeichnung = b;
     }
     
     /** Datenmodell:
@@ -58,23 +58,21 @@ public class Signal
         return stellung;
     }
 
-    //Yet to be implemented
     public boolean farbe(){
-        Gleisstueck o = null;
-        Gleisstueck d = null;
-        Zug sperrer = bezug.getSperrer();
+        Gleisstueck o;
+        Gleisstueck d;
         if(ende){
             o = bezug;
             if(bezug.getEnde().getStellung()){
                 d = bezug.getEnde().getNaechsterP();
             }
-            else{d = bezug.getEnde().getNaechsterM();}
+            else d = bezug.getEnde().getNaechsterM();
+            return bezug.getEnde().befahrbar(o, d, bezug.getSperrer());
         }
         else{
             d = bezug;
             o = bezug.getAnfang().getAnfang();
+            return bezug.getAnfang().befahrbar(o, d, bezug.getSperrer());
         }
-        
-        return bezug.getEnde().befahrbar(o,d,sperrer);
     }
 }
