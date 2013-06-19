@@ -102,7 +102,37 @@ public class Datenmodell
         s26=new Signal("Signal 26", g0, true);
         s30=new Signal("Signal 30", g0, true);
         s31=new Signal("Signal 31", g0, true);
-        
+
+        g0.setSignal(null);
+        g1.setSignal(null);
+        g2.setSignal(null);
+        g3.setSignal(null);
+        g4.setSignal(null);
+        g5.setSignal(null);
+        g6.setSignal(null);
+        g7.setSignal(null);
+        g8.setSignal(null);
+        g9.setSignal(null);
+        g10.setSignal(null);
+        g11.setSignal(null);
+        g12.setSignal(null);
+        g13.setSignal(null);
+        g14.setSignal(null);
+        g15.setSignal(null);
+        g16.setSignal(null);
+        g17.setSignal(null);
+        g18.setSignal(null);
+        g19.setSignal(null);
+        g20.setSignal(null);
+        g21.setSignal(null);
+        g22.setSignal(null);
+        g23.setSignal(null);
+        g24.setSignal(null);
+        g25.setSignal(null);
+        g26.setSignal(null);
+        g27.setSignal(null);
+        g28.setSignal(null);
+        g29.setSignal(null);
 
         s= new Signal[25];
         s[0]=s1;
