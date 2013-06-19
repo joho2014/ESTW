@@ -60,6 +60,21 @@ public class Signal
 
     //Yet to be implemented
     public boolean farbe(){
-        return true;
+        Gleisstueck o = null;
+        Gleisstueck d = null;
+        Zug sperrer = bezug.getSperrer();
+        if(ende){
+            o = bezug;
+            if(bezug.getEnde().getStellung()){
+                d = bezug.getEnde().getNaechsterP();
+            }
+            else{d = bezug.getEnde().getNaechsterM();}
+        }
+        else{
+            d = bezug;
+            o = bezug.getAnfang().getAnfang();
+        }
+        
+        return bezug.getEnde().befahrbar(o,d,sperrer);
     }
 }
