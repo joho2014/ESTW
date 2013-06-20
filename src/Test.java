@@ -9,7 +9,7 @@ public class Test{
     Datenmodell d;
     DieGrafik g;  
 
-    private Zug [] Zug;
+    private Zug [] Zugarray;
 
     public Test(Steuerung steu, Datenmodell dat, DieGrafik gr)
     {
@@ -112,9 +112,9 @@ public class Test{
      * I like trains...
      */
     public void test9(){
-        Zug = new Zug[199];
+        Zugarray = new Zug[199];
         for(int i = 0;i==200;i++){
-            Zug[i]=st.zugErstellen(12,13,"zug"+i);
+            Zugarray[i]=st.zugErstellen(12,13,"zug"+i);
         }
         st.fahren();
     }
