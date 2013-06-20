@@ -261,7 +261,7 @@ class DieGrafik
         weichen[22][4] = 645;
         weichen[22][5] = 600;
         
-        errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav"};
+        errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav","AYBABTU.wav"};
         los();
     }
     private static void los()
