@@ -5,11 +5,18 @@
  * @version (06.06.2013)
  */
 public class Test{
-    private Steuerung st = new Steuerung(); 
-    private Datenmodell d = new Datenmodell();
-    private DieGrafik g = new DieGrafik(d,st);
+    Steuerung st;
+    Datenmodell d;
+    DieGrafik g;  
+
     private Zug [] Zug;
-   
+
+    public Test(Steuerung steu, Datenmodell dat, DieGrafik gr)
+    {
+        Steuerung st = steu;
+        Datenmodell d = dat;
+        DieGrafik g = gr;
+    }
 
     /**
      *Barby --> Zerbst; zeitgleich Proedel --> Barby
