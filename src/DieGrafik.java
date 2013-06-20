@@ -167,7 +167,7 @@ class DieGrafik
         weichen[9][1] = 495;
         weichen[9][2] = 1110;
         weichen[9][3] = 495;
-        weichen[9][4] = 1090;
+        weichen[9][4] = 1100;
         weichen[9][5] = 480;
 
         weichen[10][0] = 210;
@@ -192,11 +192,11 @@ class DieGrafik
         weichen[12][5] = 600;
         
         weichen[13][0] = 245;
-        weichen[13][1] = 595;
-        weichen[13][2] = 270;
-        weichen[13][3] = 595;
-        weichen[13][4] = 265;
-        weichen[13][5] = 580;
+        weichen[13][1] = 598;
+        weichen[13][2] = 225;
+        weichen[13][3] = 598;
+        weichen[13][4] = 225;
+        weichen[13][5] = 575;
         
         weichen[14][0] = 270;
         weichen[14][1] = 600;
@@ -206,10 +206,10 @@ class DieGrafik
         weichen[14][5] = 610;
         
         weichen[15][0] = 565;
-        weichen[15][1] = 610;
+        weichen[15][1] = 613;
         weichen[15][2] = 545;
-        weichen[15][3] = 610;
-        weichen[15][4] = 655;
+        weichen[15][3] = 613;
+        weichen[15][4] = 555;
         weichen[15][5] = 600;
         
         weichen[16][0] = 550;
@@ -254,11 +254,11 @@ class DieGrafik
         weichen[21][4] = 655;
         weichen[21][5] = 580;
         
-        weichen[22][0] = 660;
+        weichen[22][0] = 655;
         weichen[22][1] = 580;
         weichen[22][2] = 640;
         weichen[22][3] = 580;
-        weichen[22][4] = 650;
+        weichen[22][4] = 645;
         weichen[22][5] = 600;
         
         errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav"};
@@ -337,6 +337,7 @@ class DieGrafik
                     g2d.drawLine(weichen[i][0],weichen[i][1]-1,weichen[i][2],weichen[i][3]-1);
                     g2d.drawLine(weichen[i][0],weichen[i][1]+2,weichen[i][2],weichen[i][3]+2);
                     g2d.drawLine(weichen[i][0],weichen[i][1]-2,weichen[i][2],weichen[i][3]-2);
+                    g2d.drawLine(weichen[i][0],weichen[i][1],weichen[i][4],weichen[i][5]);
                 }
                 else
                 {
@@ -351,7 +352,7 @@ class DieGrafik
         }
         private void zugMalen(Graphics2D g2d)
         {
-            String pName = "train.jpg";
+            /*String pName = "train.jpg";
             ImageIcon ii;
             if (new File("../img/" + pName).exists()) {
                 ii = new ImageIcon("../img/" + pName);
@@ -364,7 +365,7 @@ class DieGrafik
             {
                 if(datenmodell.g[i].belegt())
                 ii.paintIcon(this, g2d, 0, 0);
-            }
+            }*/
         }
     }
     
@@ -404,7 +405,7 @@ class DieGrafik
                 namePanel.add(textArea);
                 panel.add(namePanel);
                 
-                JButton button1 = new JButton("Zug erstellen");
+                JButton button1 = new JButton("Zug fahren");
                 button1.addActionListener(new KnopfListener());
                 button1.setPreferredSize(new Dimension(100,40));
                 panel.add(button1);
