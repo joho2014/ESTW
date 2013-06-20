@@ -10,6 +10,8 @@ public class Steuerung
 	private List trains;
 	private DieGrafik anzeige;
 	private Datenmodell datenmodell;
+	private Test test;
+	
 
 	/**
 	 * Constructor for objects of class Steuerung
@@ -18,6 +20,7 @@ public class Steuerung
 		trains = new List();
 		datenmodell = new Datenmodell();
 		anzeige = new DieGrafik(datenmodell,this);
+		test = new Test(this,datenmodell,anzeige);
 	}
 
 
