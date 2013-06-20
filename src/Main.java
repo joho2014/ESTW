@@ -2,16 +2,17 @@ public class Main
 {
     public static void main(String[] s) throws Exception{
        Steuerung st = new Steuerung();
-        if (s!=null){
-            st.test.test1();
-            st.test.test2();
-            st.test.test3();
-            st.test.test4();
-            st.test.test5();
-            st.test.test6();
-            st.test.test7();
-            st.test.test8();
-            st.test.test9();}
+        if (s.length!=0){
+            Test test = st.getTest();
+            test.test1();
+            test.test2();
+            test.test3();
+            test.test4();
+            test.test5();
+            test.test6();
+            test.test7();
+            test.test8();
+            test.test9();}
 
     }   
 }
