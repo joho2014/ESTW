@@ -17,7 +17,7 @@ public class Datenmodell
         g3=new Gleisstueck("Gleisstueck 3", 590, w44, w6);
         g4=new Gleisstueck("Gleisstueck 4", 190, w43, w6);
         g5=new Gleisstueck("Gleisstueck 5", 210, null, w1);
-        g6=new Gleisstueck("Gleisstueck 6", 260, w1, w7);
+        g6=new Gleisstueck("Gleisstueck 6", 260, w3, w7);
         g7=new Gleisstueck("Gleisstueck 7", 730, w7, w11);
         g8=new Gleisstueck("Gleisstueck 8", 200, w11, null);
         g9=new Gleisstueck("Gleisstueck 9", 190, null, w2);
@@ -30,7 +30,7 @@ public class Datenmodell
         g16=new Gleisstueck("Gleisstueck 16", 330, w40, w44);
         g17=new Gleisstueck("Gleisstueck 17", 250, null, w14);
         g18=new Gleisstueck("Gleisstueck 18", 80, w14, w16);
-        g19=new Gleisstueck("Gleisstueck 19", 690, w16, w39);
+        g19=new Gleisstueck("Gleisstueck 19", 690, w17, w39);
         g20=new Gleisstueck("Gleisstueck 20", 60, w39, w38);
         g21=new Gleisstueck("Gleisstueck 21", 51, w38, w42);
         g22=new Gleisstueck("Gleisstueck 22", 50, w42, w43);
@@ -66,32 +66,32 @@ public class Datenmodell
         w41=new Weiche("Weiche 41",g25,g22,g24);
         w17=new Weiche("Weiche 17",g19,g23,g29);
 
-
-        s1=new Signal("Signal 1", null, true);
-        s2=new Signal("Signal 2", null, true);
-        s3=new Signal("Signal 3", null, true);
-        s4=new Signal("Signal 4", null, true);
-        s5=new Signal("Signal 5", null, true);
-        s6=new Signal("Signal 6", null, true);
-        s7=new Signal("Signal 7", null, true);
-        s8=new Signal("Signal 8", null, true);
-        s9=new Signal("Signal 9", null, true);
-        s10=new Signal("Signal 10", null, true);
-        s11=new Signal("Signal 11", null, true);
-        s12=new Signal("Signal 12", null, true);
-        s13=new Signal("Signal 13", null, true);
-        s14=new Signal("Signal 14", null, true);
-        s15=new Signal("Signal 15", null, true);
-        s16=new Signal("Signal 16", null, true);
-        s17=new Signal("Signal 17", null, true);
-        s18=new Signal("Signal 18", null, true);
-        s20=new Signal("Signal 20", null, true);
-        s21=new Signal("Signal 21", null, true);
-        s22=new Signal("Signal 22", null, true);
-        s25=new Signal("Signal 25", null, true);
-        s26=new Signal("Signal 26", null, true);
-        s30=new Signal("Signal 30", null, true);
-        s31=new Signal("Signal 31", null, true);
+        //true=ende
+        s1=new Signal("Signal 1", g6, false);
+        s2=new Signal("Signal 2", g7, false);
+        s3=new Signal("Signal 3", g8, false);
+        s4=new Signal("Signal 4", g9, true);
+        s5=new Signal("Signal 5", g10, false);
+        s6=new Signal("Signal 6", g6, true);
+        s7=new Signal("Signal 7", g11, false);
+        s8=new Signal("Signal 8", g12, false);
+        s9=new Signal("Signal 9", g10, true);
+        s10=new Signal("Signal 10", g11, true);
+        s11=new Signal("Signal 11", g1, false);
+        s12=new Signal("Signal 12", g1, true);
+        s13=new Signal("Signal 13", g3, true);
+        s14=new Signal("Signal 14", g4, true);
+        s15=new Signal("Signal 15", g2, false);
+        s16=new Signal("Signal 16", g13, true);
+        s17=new Signal("Signal 17", g15, false);
+        s18=new Signal("Signal 18", g15, true);
+        s20=new Signal("Signal 20", g17, true);
+        s21=new Signal("Signal 21", g19, false);
+        s22=new Signal("Signal 22", g19, true);
+        s25=new Signal("Signal 25", g23, false);
+        s26=new Signal("Signal 26", g25, false);
+        s30=new Signal("Signal 30", g23, true);
+        s31=new Signal("Signal 31", g25, true);
 
         g1.setSignal(null);
         g2.setSignal(null);
