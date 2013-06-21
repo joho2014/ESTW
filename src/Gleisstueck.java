@@ -6,7 +6,8 @@ public class Gleisstueck
     private double laenge;
     private Weiche anfang;
     private Weiche ende;
-    private Signal signal;
+    private Signal endSignal;
+    private Signal anfangsSignal;
     
     /** Datenmodell:
      * Konstruktor Gleisstueck
@@ -15,19 +16,32 @@ public class Gleisstueck
      * @param a Anfangsweiche
      * @param e Endweiche
      */
-    public Gleisstueck(String b, double l, Weiche a, Weiche e) {
+    public Gleisstueck(String b, double l) {
         bezeichnung = b;
         current = null;
         sperrer = null;
         laenge = l;
+        anfang = null;
+        ende = null;
+        endSignal = null;
+        anfangsSignal = null;
+    }
+
+    public void setWeichen(Weiche a, Weiche e){
         anfang = a;
         ende = e;
     }
 
-
-
-    public void setSignal(Signal s){
-        signal = s;
+    public boolean setSignal(Signal s){
+        if(s.ende() && endSignal == null){
+            endSignal = s;
+            return true;
+        }
+        else if(!s.ende() && anfangsSignal == null){
+            anfangsSignal = s;
+            return true;
+        }
+        return false;
     }
 
     /** Datenmodell:
@@ -114,8 +128,7 @@ public class Gleisstueck
         if(current == null && sperrer == z){
             return true;
         }
-        else return false;
-
+        return false;
     }
 
     public Zug getSperrer(){
@@ -128,8 +141,8 @@ public class Gleisstueck
     }
 
     public Weiche verbindung(Gleisstueck g){
-        if(anfang.erreichbar(g)) return anfang;
-        else if(ende.erreichbar(g)) return ende;
+        if(anfang != null && anfang.erreichbar(g)) return anfang;
+        else if(ende != null && ende.erreichbar(g)) return ende;
         return null;
     }
 

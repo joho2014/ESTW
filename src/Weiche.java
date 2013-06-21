@@ -72,7 +72,7 @@ public class Weiche
      * Ausgabe des Anfangsgleisstuecks.
      * @return Gleisstueck Anfangsgleisstuecks
      */
-    public Gleisstueck getAnfang ()
+    public Gleisstueck getAnfang()
     {
         return anfang;
     }

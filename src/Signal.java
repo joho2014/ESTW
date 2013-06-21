@@ -75,4 +75,8 @@ public class Signal
             return bezug.getAnfang().befahrbar(o, d, bezug.getSperrer());
         }
     }
+
+    public boolean ende(){
+        return ende;
+    }
 }

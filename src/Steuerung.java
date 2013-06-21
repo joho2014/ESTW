@@ -21,6 +21,8 @@ public class Steuerung
         datenmodell = new Datenmodell();
         anzeige = new DieGrafik(datenmodell,this);
         test = new Test(this,datenmodell,anzeige);
+        figureSignals();
+        anzeige.update();
     }
 
     public Test getTest(){
@@ -55,6 +57,7 @@ public class Steuerung
         trains.append(n);
         wiederSperren();
         figureSignals();
+        anzeige.update();
         return n;
     }
     

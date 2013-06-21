@@ -40,11 +40,18 @@ public class Zug
 	public Boolean nextTrack(){
 		Gleisstueck next = (Gleisstueck)((Node)((Node)(weg.find(position))).next()).getDatum();
 		if(next == null){
+			position.verlassen(this);
 			return true;
 		}
-		if(next.befahrbar(this) && position.verbindung(next).befahrbar(position, next, this)){
+		if(position != null){
+			System.out.println(next.befahrbar(this));
+			System.out.println(position.verbindung(next));
+			System.out.println(position.verbindung(next).befahrbar(position, next, this));
+			System.out.println(next.getSperrer());
+		}
+		if(next.befahrbar(this) && (position == null || position.verbindung(next).befahrbar(position, next, this))){
 			next.befahren(this);
-			position.verlassen(this);
+			if(position != null)position.verlassen(this);
 			position = next;
 		}
 		return false;
@@ -64,7 +71,7 @@ public class Zug
 						case 3: int[] trs6 = {9,10, 11, 26, 12}; nR = buildTracks(trs6); break;
 					} break;
 			case 2: switch(z){
-						case 0: int[] trs7 = {2, 3, 16, 15, 14, 13}; nR = buildTracks(trs7); break;
+						case 0: int[] trs7 = {2, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs7); break;
 						case 1: int[] trs8 = {2, 28, 3, 22, 25, 26, 7, 6, 27, 5}; nR = buildTracks(trs8); break;
 						case 3: int[] trs9 = {2, 28, 3, 22, 25, 26, 12}; nR = buildTracks(trs9); break;
 					} break;
