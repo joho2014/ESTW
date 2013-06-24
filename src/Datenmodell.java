@@ -128,7 +128,6 @@ public class Datenmodell
         g2.setSignal(s15);
         g3.setSignal(s13);
         g4.setSignal(s14);
-        g5.setSignal(null);
         g6.setSignal(s1);
         g6.setSignal(s6);
         g7.setSignal(s2);
@@ -140,26 +139,15 @@ public class Datenmodell
         g11.setSignal(s10);
         g12.setSignal(s8);
         g13.setSignal(s16);
-        g14.setSignal(null);
         g15.setSignal(s17);
         g15.setSignal(s18);
-        g16.setSignal(null);
         g17.setSignal(s20);
-        g18.setSignal(null);
         g19.setSignal(s21);
         g19.setSignal(s22);
-        g20.setSignal(null);
-        g21.setSignal(null);
-        g22.setSignal(null);
         g23.setSignal(s25);
         g23.setSignal(s30);
-        g24.setSignal(null);
         g25.setSignal(s31);
         g25.setSignal(s26);
-        g26.setSignal(null);
-        g27.setSignal(null);
-        g28.setSignal(null);
-        g29.setSignal(null);
 
         s= new Signal[25];
         s[0]=s1;
