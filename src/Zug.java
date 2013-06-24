@@ -52,11 +52,15 @@ public class Zug
             position.verlassen(this);
             return true;
         }
-        if(position != null){
-            System.out.println(next.befahrbar(this));
+        if(null != null){
+        	System.out.println("++++++++++++++++++++++++++++++++");
+        	System.out.println(weg);
+            System.out.println(next);
+            System.out.println(position);
             System.out.println(position.verbindung(next));
             System.out.println(position.verbindung(next).befahrbar(position, next, this));
             System.out.println(next.getSperrer());
+            System.out.println("--------------------------------");
         }
         if(next.befahrbar(this) && (position == null || position.verbindung(next).befahrbar(position, next, this))){
             next.befahren(this);
@@ -84,7 +88,7 @@ public class Zug
             case 1: switch(z){
                         case 0: int[] trs4 = {9, 27, 1, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs4); break;
                         case 2: int[] trs5 = {9, 27, 1, 2}; nR = buildTracks(trs5); break;
-                        case 3: int[] trs6 = {9,10, 11, 26, 12}; nR = buildTracks(trs6); break;
+                        case 3: int[] trs6 = {9, 10, 11, 26, 12}; nR = buildTracks(trs6); break;
                     } break;
             case 2: switch(z){
                         case 0: int[] trs7 = {2, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs7); break;
@@ -107,7 +111,7 @@ public class Zug
      * @return     Gleisstueck
      */
     public Gleisstueck g(int gleisstueck){
-        return dm.getGleisstueck(gleisstueck);
+        return dm.getGleisstueck(--gleisstueck);
     }
 
     /**
