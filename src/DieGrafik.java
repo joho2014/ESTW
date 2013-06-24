@@ -322,9 +322,9 @@ class DieGrafik
             for(int i = 0; i < 25; i++)
             {
                 if(datenmodell.s[i].getStellung())
-                    g2d.setPaint(Color.red);
-                else
                     g2d.setPaint(Color.green);
+                else
+                    g2d.setPaint(Color.red);
                 g2d.fillOval(signale[i][0],signale[i][1],8,8);
             }
             g2d.setPaint(Color.black);
