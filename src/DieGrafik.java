@@ -348,11 +348,11 @@ class DieGrafik
                     g2d.drawLine(weichen[i][0]-2,weichen[i][1],weichen[i][4]-2,weichen[i][5]);
                 }
             }
-            zugMalen(g2d);
+            this.zugMalen(g2d);
         }
         private void zugMalen(Graphics2D g2d)
         {
-            /*String pName = "train.jpg";
+            String pName = "train.jpg";
             ImageIcon ii;
             if (new File("../img/" + pName).exists()) {
                 ii = new ImageIcon("../img/" + pName);
@@ -361,11 +361,11 @@ class DieGrafik
             {
                 ii = new ImageIcon(getClass().getResource(pName));
             }
-            for(int i = 0; i < 30; i++)
+            for(int i = 0; i < 29; i++)
             {
                 if(datenmodell.g[i].belegt())
                 ii.paintIcon(this, g2d, 0, 0);
-            }*/
+            }
         }
     }
     
