@@ -8,7 +8,8 @@ class Node{
 	}
 
 	public String toString(){
-		return datum.toString();
+		if(datum != null) return datum.toString();
+		return "null";
 	}
 
 	public Node next(){
