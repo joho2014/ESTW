@@ -64,14 +64,26 @@ public class Signal
         if(ende){
             o = bezug;
             if(bezug.getEnde().getStellung()){
-                d = bezug.getEnde().getNaechsterP();
+                if(bezug.getEnde().getNaechsterP() != o) d = bezug.getEnde().getNaechsterP();
+                else d = bezug.getEnde().getAnfang();
             }
-            else d = bezug.getEnde().getNaechsterM();
+            else{
+                if(bezug.getEnde().getNaechsterM() != o) d = bezug.getEnde().getNaechsterM();
+                else d = bezug.getEnde().getAnfang();
+            }
             return bezug.getEnde().befahrbar(o, d, bezug.getSperrer());
         }
         else{
             d = bezug;
             o = bezug.getAnfang().getAnfang();
+            if(bezug.getAnfang().getStellung()){
+                if(bezug.getAnfang().getAnfang() != d) o = bezug.getAnfang().getAnfang();
+                else o = bezug.getAnfang().getNaechsterP();
+            }
+            else{
+                if(bezug.getEnde().getAnfang() != d) o = bezug.getEnde().getAnfang();
+                else o = bezug.getAnfang().getNaechsterM();
+            }
             return bezug.getAnfang().befahrbar(o, d, bezug.getSperrer());
         }
     }

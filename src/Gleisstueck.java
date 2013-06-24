@@ -108,7 +108,7 @@ public class Gleisstueck
     }
 
     public boolean befahren(Zug z){
-        if(current == null && sperrer == z){
+        if(current == null && sperrer == z && sperrer != null){
             current = z;
             return true;
         }
@@ -125,7 +125,7 @@ public class Gleisstueck
     }
 
     public boolean befahrbar(Zug z){
-        if(current == null && sperrer == z){
+        if(current == null && sperrer == z && sperrer != null){
             return true;
         }
         return false;

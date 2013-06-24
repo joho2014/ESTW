@@ -140,7 +140,7 @@ public class Weiche
     }
 
     public boolean befahrbar(Gleisstueck o, Gleisstueck d, Zug z){
-        if(z == sperrer){
+        if(z == sperrer && sperrer != null){
             if(stellung == true){
                 if ((o == anfang && d == naechsterP)||(d == anfang && o == naechsterP)) return true;
             }
