@@ -30,6 +30,7 @@ class DieGrafik
     private static int zielnr = -1;
     private static String[] errorSnds;
     private static ImageIcon fehlerBild;
+    private static Thread th;
     public DieGrafik(Datenmodell d, Steuerung s)
     {
         datenmodell = d;
@@ -364,7 +365,7 @@ class DieGrafik
             for(int i = 0; i < 29; i++)
             {
                 if(datenmodell.g[i].belegt())
-                ii.paintIcon(this, g2d, 0, 0);
+                    ii.paintIcon(this, g2d, 0, 0);
             }
         }
     }
@@ -407,7 +408,6 @@ class DieGrafik
                 
                 JButton button1 = new JButton("Zug fahren");
                 button1.addActionListener(new KnopfListener());
-                button1.setPreferredSize(new Dimension(100,40));
                 panel.add(button1);
                 
                 frame1.getContentPane().add(panel);
@@ -449,6 +449,11 @@ class DieGrafik
             else if(k.getKeyCode() == KeyEvent.VK_B)
             {
                 steuerung.blockFahren();
+            }
+            else if(k.getKeyCode() == KeyEvent.VK_F1)
+            {
+                th = new Thread(new DieUhr());
+                th.run();
             }
         }
         
@@ -564,6 +569,46 @@ class DieGrafik
                         starts[i].setEnabled(false);
                         zielnr = i;
                     }
+                    if(i == 0 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[1].setEnabled(false);
+                        startnr = i;
+                    }
+                    if(i == 0 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[1].setEnabled(false);
+                        zielnr = i;
+                    }
+                    if(i == 1 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[0].setEnabled(false);
+                        startnr = i;
+                    }
+                    if(i == 1 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[0].setEnabled(false);
+                        zielnr = i;
+                    }
+                    if(i == 2 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[3].setEnabled(false);
+                        startnr = i;
+                    }
+                    if(i == 2 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[3].setEnabled(false);
+                        zielnr = i;
+                    }
+                    if(i == 3 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[2].setEnabled(false);
+                        startnr = i;
+                    }
+                    if(i == 3 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[2].setEnabled(false);
+                        zielnr = i;
+                    }
                 }
                 ausgewaehlt = true;
             }
@@ -576,6 +621,38 @@ class DieGrafik
                         ziele[i].setEnabled(true);
                     if(ziele[i].getText().equals(knopf.getText()))
                         starts[i].setEnabled(true);
+                    if(i == 0 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[1].setEnabled(true);
+                    }
+                    if(i == 0 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[1].setEnabled(true);
+                    }
+                    if(i == 1 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[0].setEnabled(true);
+                    }
+                    if(i == 1 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[0].setEnabled(true);
+                    }
+                    if(i == 2 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[3].setEnabled(true);
+                    }
+                    if(i == 2 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[3].setEnabled(true);
+                    }
+                    if(i == 3 && starts[i].getText().equals(knopf.getText()))
+                    {
+                        ziele[2].setEnabled(true);
+                    }
+                    if(i == 3 && ziele[i].getText().equals(knopf.getText()))
+                    {
+                        starts[2].setEnabled(true);
+                    }
                 }
                 ausgewaehlt = false;
             }
@@ -602,6 +679,20 @@ class DieGrafik
                 datenmodell.w[weichenBox.getSelectedIndex()].setStellung(false);
             }
             update();
+        }
+    }
+    private static class DieUhr implements Runnable
+    {
+        public void run()
+        {
+            while(true)
+            {
+                System.out.println(new Date());
+                try
+                {Thread.sleep(1000);}
+                catch(Exception e)
+                {}
+            }
         }
     }
 }
