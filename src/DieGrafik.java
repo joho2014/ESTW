@@ -585,11 +585,11 @@ class DieGrafik
     {
         public void actionPerformed(ActionEvent a)
         {
-            if((((JButton)a.getSource()).getText().equals("auf rot stellen")))
+            if((((JButton)a.getSource()).getText().equals("auf grün stellen")))
             {
                 datenmodell.s[signalBox.getSelectedIndex()].setStellung(true);
             }
-            else if((((JButton)a.getSource()).getText().equals("auf grün stellen")))
+            else if((((JButton)a.getSource()).getText().equals("auf rot stellen")))
             {
                 datenmodell.s[signalBox.getSelectedIndex()].setStellung(false);
             }
