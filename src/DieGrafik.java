@@ -261,7 +261,7 @@ class DieGrafik
         weichen[22][4] = 645;
         weichen[22][5] = 600;
         
-        errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav","AYBABTU.wav"};
+        errorSnds = new String[] {"wtfwarum.wav", "Gottes Willa.wav"};
         los();
     }
     private static void los()
@@ -585,11 +585,11 @@ class DieGrafik
     {
         public void actionPerformed(ActionEvent a)
         {
-            if((((JButton)a.getSource()).getText().equals("auf rot stellen")))
+            if((((JButton)a.getSource()).getText().equals("auf grün stellen")))
             {
                 datenmodell.s[signalBox.getSelectedIndex()].setStellung(true);
             }
-            else if((((JButton)a.getSource()).getText().equals("auf grün stellen")))
+            else if((((JButton)a.getSource()).getText().equals("auf rot stellen")))
             {
                 datenmodell.s[signalBox.getSelectedIndex()].setStellung(false);
             }

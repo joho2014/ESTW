@@ -1,3 +1,4 @@
+
 public class Datenmodell
 {
     private Gleisstueck g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,g13,g14,g15,g16,g17,g18,g19,g20,g21,g22,g23,g24,g25,g26,g27,g28,g29;
@@ -51,7 +52,7 @@ public class Datenmodell
         w8=new Weiche("Weiche 8",g10,g6,g11);
         w10=new Weiche("Weiche 10",g11,g25,g26);
         w11=new Weiche("Weiche 11",g7,g26,g8);
-        w12=new Weiche("Weiche 12",g8,g12,g26);
+        w12=new Weiche("Weiche 12",g12,g8,g26);
         w13=new Weiche("Weiche 13",g13,g17,g14);
         w14=new Weiche("Weiche 14",g18,g14,g17);
         w15=new Weiche("Weiche 15",g15,g19,g14);

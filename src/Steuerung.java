@@ -24,7 +24,12 @@ public class Steuerung
         figureSignals();
         anzeige.update();
     }
-
+    
+    /**
+     * Gibt das Objekt Test zurück
+     * 
+     * @return     Objekt der Klasse Test
+     */
     public Test getTest(){
         return test;  
     }
@@ -62,10 +67,15 @@ public class Steuerung
     }
     
     /**
-     * Realtime
+     * Lässt die Züge in der Abhängigkeit von der Länge der Gleise weiterfahren
      */
     public void fahren(){}
 
+    /**
+     * Löscht einen bestimmten Zug und entsperrt von diesem gesperrte Signale und Weichen
+     * 
+     * @param z Der zu löschende Zug
+     */
     public void cleanup(Zug z){
         z.wegFreimachen();
         trains.delete(z);
@@ -73,6 +83,9 @@ public class Steuerung
         figureSignals();
     }
 
+    /**
+     * Ändert Farbe und Sperrer des Signals
+     */
     public void figureSignals(){
         int i = 0;
         while(datenmodell.getSignal(i) != null){
@@ -81,6 +94,9 @@ public class Steuerung
         }
     }
 
+    /**
+     * Sperrt Weichen und Signale für den ersten Zug
+     */
     public void wiederSperren(){
         Node node = trains.getHead();
         while(node != null){
