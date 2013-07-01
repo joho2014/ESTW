@@ -7,23 +7,29 @@
  */
 public class Steuerung
 {
-    private ZugNeu zug;
+    private Zug zug;
     private Datenmodell dm;
     private DieGrafik az;
     public Steuerung()
     {
-        
+        zug = null;
+        dm = new Datenmodell();
+        az = new DieGrafik(dm,this);
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void ZugErstellen(String start,String ziel){
+        if(zug != null){
+            System.out.println("Es ist bereits ein Zug vorhanden");
+        }
+        else{
+            zug = new Zug();
+            zug.ZugErstellen(start,ziel);
+        }
     }
+    
+    public void ZugLöschen(){
+        zug = null;
+    }
+    
+    
 }
