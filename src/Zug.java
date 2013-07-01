@@ -1,18 +1,24 @@
 
 /**
- * Write a description of class ZugNeu here.
+ * Diese Klasse erstellt einen Zug der sich durch das ESTW bewegen kann.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Huber, Norbert 
+ * @version 01.07.2013
  */
 public class Zug
 {
+    private Gleistück[] Weg;
+    /**
+     * Diese Methode erzeugt ein Objekt der Klasse Zug
+     */
     public Zug()
     {
-        // initialise instance variables
-        x = 0;
+        Weg = new Gleisstück[15] ;
     }
 
+    /**
+     * Gibt dem Zug seinen Weg
+     */
     public void ZugErstellen(){
         if(start == "Zerbst"){
             if(){}
