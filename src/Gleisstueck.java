@@ -17,6 +17,8 @@ public class Gleisstueck
      * @param l Laenge
      * @param a Anfangsweiche
      * @param e Endweiche
+     * @param x X-Koordinate des Zuges auf diesem Gleisstueck
+     * @param y Y-Koordinate des Zuges auf diesem Gleisstueck
      */
     public Gleisstueck(String b, double l, int x, int y) {
         bezeichnung = b;
