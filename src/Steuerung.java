@@ -31,5 +31,11 @@ public class Steuerung
         zug = null;
     }
     
+    public void blockfahren(){
+        if (zug == null){
+            System.out.println("Es befindet sich kein Zug im Bahnhof")
+        
+    }
+    
     
 }
