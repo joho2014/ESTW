@@ -8,6 +8,8 @@ public class Gleisstueck
     private Weiche ende;
     private Signal endSignal;
     private Signal anfangsSignal;
+    private int xKo;
+    private int yKo;
     
     /** Datenmodell:
      * Konstruktor Gleisstueck
