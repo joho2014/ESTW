@@ -18,7 +18,7 @@ public class Gleisstueck
      * @param a Anfangsweiche
      * @param e Endweiche
      */
-    public Gleisstueck(String b, double l) {
+    public Gleisstueck(String b, double l, int x, int y) {
         bezeichnung = b;
         current = null;
         sperrer = null;
@@ -27,6 +27,8 @@ public class Gleisstueck
         ende = null;
         endSignal = null;
         anfangsSignal = null;
+		xKo=x;
+		yKo=y;
     }
 
     public void setWeichen(Weiche a, Weiche e){
