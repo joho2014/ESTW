@@ -455,6 +455,11 @@ class DieGrafik
                 th = new Thread(new DieUhr());
                 th.run();
             }
+            else if(k.getKeyCode() == KeyEvent.VK_F2)
+            {
+                th = new Thread(new DieUhr());
+                th.run();
+            }
         }
         
         public void keyReleased(KeyEvent k)
@@ -504,6 +509,10 @@ class DieGrafik
             {
                 if((textArea.getText() != null)&&(!(textArea.getText().equals(""))))
                 {
+                    if(textArea.getText().compareToIgnoreCase("easteregg") == 0)
+                    {
+                        System.out.println("Happy Easter!");
+                    }
                     zuege.add(steuerung.zugErstellen(startnr,zielnr,textArea.getText()));
                     frame1.setVisible(false);
                     groupStart.clearSelection();
@@ -696,3 +705,35 @@ class DieGrafik
         }
     }
 }
+//GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}
+/*    (finger)
+
+    (bandit)
+
+    (mooning)
+
+    (swear)
+
+    (drunk)
+
+    (rock)
+
+    (poolparty)
+
+    (bug)
+
+    (ninja)
+
+    (smoking)
+
+    (fubar)
+
+    (tmi)
+
+    (headbang)
+
+    (smoking)
+
+    (rock)
+
+    (drunk)*/
