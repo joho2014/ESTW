@@ -97,7 +97,7 @@ public class Zug
                     } break;
             case 3: switch(z){
                         case 0: int[] trs10 = {8, 7, 6, 1, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs10); break;
-                        case 1: int[] trs11 = {8, 7, 27, 5}; nR = buildTracks(trs11); break;
+                        case 1: int[] trs11 = {8, 7, 6, 27, 5}; nR = buildTracks(trs11); break;
                         case 2: int[] trs12 = {8, 7, 6, 27, 1, 2}; nR = buildTracks(trs12); break;
                     } break;
         }
