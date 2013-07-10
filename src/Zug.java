@@ -53,8 +53,8 @@ public class Zug
             return true;
         }
         if(null != null){
-        	System.out.println("++++++++++++++++++++++++++++++++");
-        	System.out.println(weg);
+            System.out.println("++++++++++++++++++++++++++++++++");
+            System.out.println(weg);
             System.out.println(next);
             System.out.println(position);
             System.out.println(position.verbindung(next));
@@ -96,7 +96,7 @@ public class Zug
                         case 3: int[] trs9 = {2, 28, 3, 22, 25, 26, 12}; nR = buildTracks(trs9); break;
                     } break;
             case 3: switch(z){
-                        case 0: int[] trs10 = {8, 7, 6, 1, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs10); break;
+                        case 0: int[] trs10 = {8, 26, 25, 24, 23, 29, 14, 13}; nR = buildTracks(trs10); break;
                         case 1: int[] trs11 = {8, 7, 6, 27, 5}; nR = buildTracks(trs11); break;
                         case 2: int[] trs12 = {8, 7, 6, 27, 1, 2}; nR = buildTracks(trs12); break;
                     } break;

@@ -59,7 +59,7 @@ public class Datenmodell
         w16=new Weiche("Weiche 16",g18,g14,g29);
         w40=new Weiche("Weiche 40",g16,g20,g15);
         w39=new Weiche("Weiche 39",g19,g15,g20);
-        w44=new Weiche("Weiche 44",g22,g16,g3);
+        w44=new Weiche("Weiche 44",g16,g22,g3);
         w43=new Weiche("Weiche 43",g4,g3,g22);
         w38=new Weiche("Weiche 38",g21,g24,g20);
         w37=new Weiche("Weiche 37",g23,g20,g24);
