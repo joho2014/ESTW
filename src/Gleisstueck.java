@@ -29,8 +29,8 @@ public class Gleisstueck
         ende = null;
         endSignal = null;
         anfangsSignal = null;
-		xKo=x;
-		yKo=y;
+        xKo=x;
+        yKo=y;
     }
 
     public void setWeichen(Weiche a, Weiche e){
@@ -154,5 +154,15 @@ public class Gleisstueck
 
     public String toString(){
         return bezeichnung;
+    }
+    
+    public int getX()
+    {
+        return xKo;
+    }
+    
+    public int getY()
+    {
+        return yKo;
     }
 }

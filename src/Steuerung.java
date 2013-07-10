@@ -104,4 +104,9 @@ public class Steuerung
             node = node.next();
         }
     }
+    
+    public List getTrains()
+    {
+        return trains;
+    }
 }
