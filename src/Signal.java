@@ -81,7 +81,7 @@ public class Signal
                 else o = bezug.getAnfang().getNaechsterP();
             }
             else{
-                if(bezug.getEnde().getAnfang() != d) o = bezug.getEnde().getAnfang();
+                if(bezug.getEnde() != null && bezug.getEnde().getAnfang() != d) o = bezug.getEnde().getAnfang();
                 else o = bezug.getAnfang().getNaechsterM();
             }
             return bezug.getAnfang().befahrbar(o, d, bezug.getSperrer());
