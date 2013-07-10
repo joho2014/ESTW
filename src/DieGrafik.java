@@ -354,7 +354,7 @@ class DieGrafik
         }
         private void zugMalen(Graphics2D g2d)
         {
-            /*String pName = "train.jpg";
+            String pName = "train.jpg";
             ImageIcon ii;
             if (new File("../img/" + pName).exists()) {
                 ii = new ImageIcon("../img/" + pName);
@@ -366,12 +366,9 @@ class DieGrafik
             List l = steuerung.getTrains();
             for(int i = 0; i < steuerung.getTrains().length(); i++)
             {
-                System.out.println("Zug: "+(Zug)l.head());
-                System.out.println("Position: "+((Zug)l.head()).getPosition());
-                System.out.println("x :"+((Zug)l.head()).getPosition().getX());
-                ii.paintIcon(this, g2d, ((Zug)l.head()).getPosition().getX(), ((Zug)l.head()).getPosition().getY());
+                if(((Zug)l.head()).getPosition() != null) ii.paintIcon(this, g2d, ((Zug)l.head()).getPosition().getX(), ((Zug)l.head()).getPosition().getY());
                 l = l.tail();
-            }*/
+            }
         }
     }
     
