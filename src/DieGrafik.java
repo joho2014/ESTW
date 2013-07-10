@@ -354,20 +354,27 @@ class DieGrafik
         }
         private void zugMalen(Graphics2D g2d)
         {
-            String pName = "train.jpg";
-            ImageIcon ii;
-            if (new File("../img/" + pName).exists()) {
-                ii = new ImageIcon("../img/" + pName);
-            }
-            else
+            try
             {
-                ii = new ImageIcon(getClass().getResource(pName));
+                String pName = "train.jpg";
+                ImageIcon ii;
+                if (new File("../img/" + pName).exists()) {
+                    ii = new ImageIcon("../img/" + pName);
+                }
+                else
+                {
+                    ii = new ImageIcon(getClass().getResource(pName));
+                }
+                List l = steuerung.getTrains();
+                for(int i = 0; i < steuerung.getTrains().length(); i++)
+                {
+                    ii.paintIcon(this, g2d, ((Zug)l.head()).getPosition().getX(), ((Zug)l.head()).getPosition().getY());
+                    l = l.tail();
+                }
             }
-            List l = steuerung.getTrains();
-            for(int i = 0; i < steuerung.getTrains().length(); i++)
+            catch(NullPointerException n)
             {
-                if(((Zug)l.head()).getPosition() != null) ii.paintIcon(this, g2d, ((Zug)l.head()).getPosition().getX(), ((Zug)l.head()).getPosition().getY());
-                l = l.tail();
+                return;
             }
         }
     }
