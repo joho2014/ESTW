@@ -103,7 +103,7 @@ public class Test{
    /**
      * 2 Züge an der selben stelle erzeugen
      */
-    public void test8()
+    public void test7()
     {
         Zug zug1 = st.zugErstellen(0,2,"Zug1");
         Zug zug2 = st.zugErstellen(0,2,"Zug2");
@@ -113,7 +113,7 @@ public class Test{
     /**
      * I like trains...
      */
-    public void test9(){
+    public void test8(){
         Zugarray = new Zug[199];
         for(int i = 0;i==200;i++){
             Zugarray[i]=st.zugErstellen(3,0,"zug"+i);
