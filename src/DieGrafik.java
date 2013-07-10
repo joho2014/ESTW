@@ -368,7 +368,8 @@ class DieGrafik
                 List l = steuerung.getTrains();
                 for(int i = 0; i < steuerung.getTrains().length(); i++)
                 {
-                    ii.paintIcon(this, g2d, ((Zug)l.head()).getPosition().getX(), ((Zug)l.head()).getPosition().getY());
+                    ii.paintIcon(this, g2d, (((Zug)l.head()).getPosition().getX()-30), (((Zug)l.head()).getPosition().getY())-50);
+                    g2d.drawString(((Zug)l.head()).getName(),(((Zug)l.head()).getPosition().getX()-30),(((Zug)l.head()).getPosition().getY())-55);
                     l = l.tail();
                 }
             }
