@@ -13,9 +13,9 @@ public class Test{
 
     public Test(Steuerung steu, Datenmodell dat, DieGrafik gr)
     {
-        Steuerung st = steu;
-        Datenmodell d = dat;
-        DieGrafik g = gr;
+        st = steu;
+        d = dat;
+        g = gr;
     }
 
     /**

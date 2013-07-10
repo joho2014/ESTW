@@ -11,7 +11,7 @@ public class Main
             test.test5();
             test.test6();
             test.test7();
-            test.test8();}
-
+            test.test8();
+        }
     }   
 }
