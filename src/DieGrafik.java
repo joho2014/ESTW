@@ -356,7 +356,7 @@ class DieGrafik
         {
             try
             {
-                String pName = "train.jpg";
+                String pName = "train.gif";
                 ImageIcon ii;
                 if (new File("../img/" + pName).exists()) {
                     ii = new ImageIcon("../img/" + pName);
