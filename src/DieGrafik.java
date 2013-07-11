@@ -19,6 +19,7 @@ class DieGrafik
     private static int[][] weichen = new int[24][6];
     
     private static JFrame frame1;
+    private static JPanel startZielPanel;
     private static JRadioButton[] starts = new JRadioButton[4];
     private static JRadioButton[] ziele = new JRadioButton[4];
     private static ButtonGroup groupStart = new ButtonGroup();
@@ -271,7 +272,6 @@ class DieGrafik
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0,0,1280,985);
         frame.addKeyListener(new TastenListener());
-        frame.addMouseListener(new MausListener());
         frame.setVisible(true);
     }
     
@@ -388,7 +388,7 @@ class DieGrafik
             {
                 frame1 = new JFrame("Zug erstellen");
                 JPanel panel = new JPanel(new GridLayout(2,2,20,20));
-                JPanel startZielPanel = new JPanel(new GridLayout(5,2,10,10));
+                startZielPanel = new JPanel(new GridLayout(5,2,10,10));
                 JPanel namePanel = new JPanel(new GridLayout(2,1,10,10));
                 
                 groupStart.add(starts[0]);
@@ -483,64 +483,71 @@ class DieGrafik
         }
     }
     
-    private static class MausListener implements MouseListener
-    {
-        public void mouseEntered(MouseEvent m)
-        {
-        
-        }
-        
-        public void mouseExited(MouseEvent m)
-        {
-            
-        }
-        
-        public void mouseClicked(MouseEvent m)
-        {
-            System.out.println("("+m.getX()+"/"+m.getY()+")");
-        }
-        
-        public void mousePressed(MouseEvent m)
-        {
-        
-        }
-        
-        public void mouseReleased(MouseEvent m)
-        {
-        
-        }
-    }
-    
     private static class KnopfListener implements ActionListener
     {
         public void actionPerformed(ActionEvent a)
         {
-            if((startnr >= 0)&&(zielnr >= 0))
+            if(((JButton) a.getSource()).getText().equals("Auswahl zurücksetzen"))
             {
-                if((textArea.getText() != null)&&(!(textArea.getText().equals(""))))
+                JPanel panel = (JPanel)(startZielPanel.getParent());
+                frame1.remove(startZielPanel);
+                startZielPanel = new JPanel(new GridLayout(5,2,10,10));
+                
+                groupStart.add(starts[0]);
+                groupZiel.add(ziele[0]);
+                groupStart.add(starts[1]);
+                groupZiel.add(ziele[1]);
+                groupStart.add(starts[2]);
+                groupZiel.add(ziele[2]);
+                groupStart.add(starts[3]);
+                groupZiel.add(ziele[3]);
+                
+                startZielPanel.add(new JLabel("Start"));
+                startZielPanel.add(new JLabel("Ziel"));
+                startZielPanel.add(starts[0]);
+                startZielPanel.add(ziele[0]);
+                startZielPanel.add(starts[1]);
+                startZielPanel.add(ziele[1]);
+                startZielPanel.add(starts[2]);
+                startZielPanel.add(ziele[2]);
+                startZielPanel.add(starts[3]);
+                startZielPanel.add(ziele[3]);
+                panel.add(startZielPanel);
+                frame1.setVisible(false);
+                frame1.setVisible(true);
+                
+                startnr = -1;
+                zielnr = -1;
+            }
+            else
+            {
+                if((startnr >= 0)&&(zielnr >= 0))
                 {
-                    if(textArea.getText().compareToIgnoreCase("easteregg") == 0)
+                    if((textArea.getText() != null)&&(!(textArea.getText().equals(""))))
                     {
-                        System.out.println("Happy Easter!");
+                        if(textArea.getText().compareToIgnoreCase("easteregg") == 0)
+                        {
+                            System.out.println("Happy Easter!");
+                        }
+                        zuege.add(steuerung.zugErstellen(startnr,zielnr,textArea.getText()));
+                        frame1.setVisible(false);
+                        groupStart.clearSelection();
+                        groupZiel.clearSelection();
+                        textArea.setText(null);
+                        startnr = -1;
+                        zielnr = -1;
                     }
-                    zuege.add(steuerung.zugErstellen(startnr,zielnr,textArea.getText()));
-                    frame1.setVisible(false);
-                    groupStart.clearSelection();
-                    groupZiel.clearSelection();
-                    textArea.setText(null);
-                    startnr = -1;
-                    zielnr = -1;
+                    else
+                    {
+                        clipMachen(errorSnds[((int)(Math.random()*(errorSnds.length-1)))]).start();
+                        fehlerAusgeben("Der Zug hat keinen Bezeichner!");
+                    }
                 }
                 else
                 {
                     clipMachen(errorSnds[((int)(Math.random()*(errorSnds.length-1)))]).start();
-                    fehlerAusgeben("Der Zug hat keinen Bezeichner!");
+                    fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
                 }
-            }
-            else
-            {
-                clipMachen(errorSnds[((int)(Math.random()*(errorSnds.length-1)))]).start();
-                fehlerAusgeben("Kein Start und/oder Ziel ausgewählt!");
             }
         }
         
