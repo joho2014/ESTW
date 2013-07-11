@@ -58,6 +58,11 @@ public class Weiche
     {
         return naechsterM;
     }
+
+    public Gleisstueck getNaechster(){
+        if(stellung) return naechsterP;
+        return naechsterM;
+    }
     
     /** Datenmodell:
      * Das Anfangsgleisstuecks wird gesetzt.

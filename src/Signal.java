@@ -63,26 +63,21 @@ public class Signal
         Gleisstueck d;
         if(ende){
             o = bezug;
-            if(bezug.getEnde().getStellung()){
-                if(bezug.getEnde().getNaechsterP() != o) d = bezug.getEnde().getNaechsterP();
-                else d = bezug.getEnde().getAnfang();
+            if(bezug.getEnde().getAnfang() == bezug){
+                d = bezug.getEnde().getNaechster();
             }
             else{
-                if(bezug.getEnde().getNaechsterM() != o) d = bezug.getEnde().getNaechsterM();
-                else d = bezug.getEnde().getAnfang();
+                d = bezug.getEnde().getAnfang();
             }
             return bezug.getEnde().befahrbar(o, d, bezug.getSperrer());
         }
         else{
             d = bezug;
-            o = bezug.getAnfang().getAnfang();
-            if(bezug.getAnfang().getStellung()){
-                if(bezug.getAnfang().getAnfang() != d) o = bezug.getAnfang().getAnfang();
-                else o = bezug.getAnfang().getNaechsterP();
+            if(bezug.getAnfang().getAnfang() == bezug){
+                o = bezug.getAnfang().getNaechster();
             }
             else{
-                if(bezug.getEnde() != null && bezug.getEnde().getAnfang() != d) o = bezug.getEnde().getAnfang();
-                else o = bezug.getAnfang().getNaechsterM();
+                o = bezug.getAnfang().getAnfang();
             }
             return bezug.getAnfang().befahrbar(o, d, bezug.getSperrer());
         }
