@@ -4,7 +4,7 @@ build:
 	javac src/*.java
 	cp img/* src/
 	cp sounds/* src/
-	cd src; jar cfe ESTW.jar Main *.class *.jpg *.wav; mv ESTW.jar ..
+	cd src; jar cfe ESTW.jar Main *.class *.jpg *.wav *.gif; mv ESTW.jar ..
 	@echo 'Fertig!'
 	@echo 'Zum Ausführen: java -jar ESTW.jar [<args>]'
 
@@ -30,6 +30,6 @@ run:
 	@java -jar ESTW.jar
 
 clean:
-	rm -f src/*.class src/*.ctxt src/*.bluej src/*.jpg src/*.wav
+	rm -f src/*.class src/*.ctxt src/*.bluej src/*.jpg src/*.wav src/*.gif
 	rm -f ESTW.jar
 
