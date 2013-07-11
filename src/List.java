@@ -130,4 +130,14 @@ class List{
 		}
 	}
 
+	public List cp(){
+		Node next = head;
+		List n = new List();
+		while(next != null){
+			n.append(next.getDatum());
+			next = next.next();
+		}
+		return n;
+	}
+
 }

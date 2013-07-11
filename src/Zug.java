@@ -77,32 +77,71 @@ public class Zug
      *          z      Legt den Zielbahnhof fest
      * @return     Eine Wegliste, die aus den zu befahrenden Gleisstuecken besteht
      */
-    public List wegErstellen(int s, int z){
-        List nR = new List();
+
+public List wegErstellen(int s, int z){
         switch(s){
-            case 0: switch(z){
-                        case 1: int[] trs1 = {17, 18, 29, 19, 20, 24, 25, 26, 7, 6, 27, 5}; nR = buildTracks(trs1); break;
-                        case 2: int[] trs2 = {17, 18, 29, 19, 20, 21, 22, 4, 28, 2}; nR = buildTracks(trs2); break;
-                        case 3: int[] trs3 = {17, 18, 29, 23, 24, 25, 26, 12}; nR = buildTracks(trs3); break;
-                    } break;
-            case 1: switch(z){
-                        case 0: int[] trs4 = {9, 27, 1, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs4); break;
-                        case 2: int[] trs5 = {9, 27, 1, 2}; nR = buildTracks(trs5); break;
-                        case 3: int[] trs6 = {9, 10, 11, 26, 12}; nR = buildTracks(trs6); break;
-                    } break;
-            case 2: switch(z){
-                        case 0: int[] trs7 = {2, 28, 3, 16, 15, 14, 13}; nR = buildTracks(trs7); break;
-                        case 1: int[] trs8 = {2, 1, 27, 5}; nR = buildTracks(trs8); break;
-                        case 3: int[] trs9 = {2, 28, 3, 22, 25, 26, 12}; nR = buildTracks(trs9); break;
-                    } break;
-            case 3: switch(z){
-                        case 0: int[] trs10 = {8, 26, 25, 24, 23, 29, 14, 13}; nR = buildTracks(trs10); break;
-                        case 1: int[] trs11 = {8, 7, 6, 27, 5}; nR = buildTracks(trs11); break;
-                        case 2: int[] trs12 = {8, 7, 6, 27, 1, 2}; nR = buildTracks(trs12); break;
-                    } break;
+            case 0: s = 17; break;
+            case 1: s = 9;  break;
+            case 2: s = 2;  break;
+            case 3: s = 8;  break;
         }
-        return nR;
+        switch(z){
+            case 0: z = 13; break;
+            case 1: z = 5;  break;
+            case 2: z = 2;  break;
+            case 3: z = 12; break;
+        }
+        return weg(s, z);
     }
+
+public List weg(int s, int z){
+    Gleisstueck ziel = g(z);
+    Gleisstueck start = g(s);
+    if(start.getAnfang() != null){
+        for (int i = 0; i <= 1; i++) {
+            if(start.getAnfang().optionen(start)[i] != null){
+                List nW = new List();
+                nW.append(start);
+                nW.append(start.getAnfang().optionen(start)[i]);
+                List weg = wegSuche(ziel, nW);
+                if(!weg.nil()) return weg; 
+            }
+        }
+    }
+    if(start.getEnde() != null){
+        for (int i = 0; i <= 1; i++) {
+            if(start.getEnde().optionen(start)[i] != null){
+                List nW = new List();
+                nW.append(start);
+                nW.append(start.getEnde().optionen(start)[i]);
+                List weg = wegSuche(ziel, nW);
+                if(!weg.nil()) return weg; 
+            }
+        }
+    }
+    return new List();
+}
+
+public List wegSuche(Gleisstueck z, List l){
+    if(l.last() == z) return l;
+    if(l.last() == null) return new List();
+    if(l.length() < 2) return new List();
+    if(l.init().inList(l.last())) return new List();
+    Gleisstueck g = (Gleisstueck)(l.last());
+    Gleisstueck gminus1 = (Gleisstueck)(l.init().last());
+    Weiche nWeiche = g.nextW(g.verbindung(gminus1));
+    Gleisstueck alt0 = nWeiche.optionen(g)[0];
+    Gleisstueck alt1 = nWeiche.optionen(g)[1];
+    List a0 = l.cp();
+    a0.append(alt0);
+    List a1 = l.cp();
+    a1.append(alt1);
+    if(wegSuche(z, a0).nil()){
+        if(wegSuche(z, a1).nil()) return new List();
+        else return wegSuche(z, a1);
+    }
+    else return wegSuche(z, a0);
+}
 
     /**
      * Verkürzung der getGleisstueck Methode, um Code kürzer zu machen

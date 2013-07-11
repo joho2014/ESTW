@@ -165,4 +165,25 @@ public class Weiche
         if(g == anfang || g == naechsterP || g == naechsterM) return true;
         return false;
     }
+
+    public Gleisstueck[] optionen(Gleisstueck g){
+        Gleisstueck[] o = new Gleisstueck[2];
+        if(g == anfang){
+            o[0] = naechsterP;
+            o[1] = naechsterM;
+        }
+        if(g == naechsterP){
+            o[0] = anfang;
+            o[1] = null;
+        }
+        if(g == naechsterM){
+            o[0] = null;
+            o[1] = anfang;
+        }
+        else{
+            o[0] = null;
+            o[1] = null;
+        }
+        return o;
+    }
 }
