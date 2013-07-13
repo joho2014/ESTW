@@ -59,28 +59,16 @@ public class Signal
     }
 
     public boolean farbe(){
-        Gleisstueck o;
-        Gleisstueck d;
-        if(ende){
-            o = bezug;
-            if(bezug.getEnde().getAnfang() == bezug){
-                d = bezug.getEnde().getNaechster();
-            }
-            else{
-                d = bezug.getEnde().getAnfang();
-            }
-            return bezug.getEnde().befahrbar(o, d, bezug.getSperrer());
-        }
-        else{
-            d = bezug;
-            if(bezug.getAnfang().getAnfang() == bezug){
-                o = bezug.getAnfang().getNaechster();
-            }
-            else{
-                o = bezug.getAnfang().getAnfang();
-            }
-            return bezug.getAnfang().befahrbar(o, d, bezug.getSperrer());
-        }
+        Weiche w;
+        Gleisstueck next;
+
+        if(ende) w = bezug.getEnde();
+        else w = bezug.getAnfang();
+
+        if(w.getAnfang() == bezug) next = w.getNaechster();
+        else next = w.getAnfang();
+            
+        return w.befahrbar(bezug, next, bezug.getSperrer());
     }
 
     public boolean ende(){
