@@ -1,7 +1,5 @@
 public class Signal
 {
-    private boolean stellung;
-    private boolean gesperrt;
     private String bezeichnung;
     private Gleisstueck bezug;
     private boolean ende;
@@ -11,8 +9,6 @@ public class Signal
      * @param b Bezeichnung
      */
     public Signal(String b, Gleisstueck bez, boolean e) {
-        stellung = true;
-        gesperrt = false;
         bezeichnung = b;
         bezug = bez;
         ende = e;
@@ -44,18 +40,6 @@ public class Signal
     public void figureState(){
         stellung = farbe();
         gesperrt = bezug.gesperrt();
-    }
-
-    public boolean setStellung(boolean s){
-        if(gesperrt != true){
-            stellung = s;
-            return true;
-        }
-        return false;
-    }
-
-    public boolean getStellung(){
-        return stellung;
     }
 
     public boolean farbe(){
