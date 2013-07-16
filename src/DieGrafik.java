@@ -357,7 +357,9 @@ class DieGrafik
             try
             {
                 String pName = "train.gif";
+                String eName = "easter egg.gif";
                 ImageIcon ii;
+                ImageIcon easter;
                 if (new File("../img/" + pName).exists()) {
                     ii = new ImageIcon("../img/" + pName);
                 }
@@ -365,11 +367,26 @@ class DieGrafik
                 {
                     ii = new ImageIcon(getClass().getResource(pName));
                 }
+                if (new File("../img/" + eName).exists()) {
+                    easter = new ImageIcon("../img/" + eName);
+                }
+                else
+                {
+                    easter = new ImageIcon(getClass().getResource(eName));
+                }
                 List l = steuerung.getTrains();
                 for(int i = 0; i < steuerung.getTrains().length(); i++)
                 {
-                    ii.paintIcon(this, g2d, (((Zug)l.head()).getPosition().getX()-30), (((Zug)l.head()).getPosition().getY())-50);
-                    g2d.drawString(((Zug)l.head()).getName(),(((Zug)l.head()).getPosition().getX()-30),(((Zug)l.head()).getPosition().getY())-55);
+                    if(((Zug)l.head()).getName().equals("Da Easterbunny"))
+                    {
+                        easter.paintIcon(this, g2d, (((Zug)l.head()).getPosition().getX()-30), (((Zug)l.head()).getPosition().getY())-50);
+                        g2d.drawString(((Zug)l.head()).getName(),(((Zug)l.head()).getPosition().getX()-30),(((Zug)l.head()).getPosition().getY())-55);
+                    }
+                    else
+                    {
+                        ii.paintIcon(this, g2d, (((Zug)l.head()).getPosition().getX()-30), (((Zug)l.head()).getPosition().getY())-50);
+                        g2d.drawString(((Zug)l.head()).getName(),(((Zug)l.head()).getPosition().getX()-30),(((Zug)l.head()).getPosition().getY())-55);
+                    }
                     l = l.tail();
                 }
             }
@@ -527,9 +544,12 @@ class DieGrafik
                     {
                         if(textArea.getText().compareToIgnoreCase("easteregg") == 0)
                         {
-                            System.out.println("Happy Easter!");
+                            zuege.add(steuerung.zugErstellen(startnr,zielnr,"Da Easterbunny"));
                         }
-                        zuege.add(steuerung.zugErstellen(startnr,zielnr,textArea.getText()));
+                        else
+                        {
+                            zuege.add(steuerung.zugErstellen(startnr,zielnr,textArea.getText()));
+                        }
                         frame1.setVisible(false);
                         groupStart.clearSelection();
                         groupZiel.clearSelection();
