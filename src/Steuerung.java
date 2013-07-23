@@ -10,7 +10,6 @@ public class Steuerung
 	private List trains;
 	private DieGrafik anzeige;
 	private Datenmodell datenmodell;
-	private Test test;
 	
 
 	/**
@@ -20,19 +19,10 @@ public class Steuerung
 		trains = new List();
 		datenmodell = new Datenmodell();
 		anzeige = new DieGrafik(datenmodell,this);
-		test = new Test(this,datenmodell,anzeige);
 		figureSignals();
 		anzeige.update();
 	}
-	
-	/**
-	 * Gibt das Objekt Test zurück
-	 * 
-	 * @return     Objekt der Klasse Test
-	 */
-	public Test getTest(){
-		return test;  
-	}
+
 	
 	/**
 	 * Jeder Zug wird auf den nächsten Gleisabschnitt bewegt, falls möglich
